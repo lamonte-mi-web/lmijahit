@@ -1732,7 +1732,7 @@ import Layout from '../layouts/LMIlayout.astro';
 			</div>
 		</div>
 	</section><!-- /.testimonial-section -->
-    <script>
+<script>
   // Ambil elemen dari DOM dengan type casting
   const form = document.getElementById('konsultasi-form') as HTMLFormElement;
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
@@ -1750,49 +1750,49 @@ import Layout from '../layouts/LMIlayout.astro';
       submitBtn.disabled = true;
       submitBtn.textContent = 'Mengirim...';
       formStatus.textContent = '';
-      formStatus.className = '';
+      formStatus.classList.remove('success', 'error');
 
       const namaLengkap = (document.getElementById('nama') as HTMLInputElement).value;
       const nomorWhatsApp = (document.getElementById('whatsapp') as HTMLInputElement).value;
 
-      // Logika format nomor telepon yang sudah diperbaiki
-      // BARU
-		let nomorFormatted = nomorWhatsApp.trim().replace(/\D/g, ''); // Hapus semua selain angka
-
-		// Cek dan perbaiki formatnya
-		if (nomorFormatted.startsWith('0')) {
-		// Mengubah '08...' menjadi '628...'
-		nomorFormatted = '62' + nomorFormatted.substring(1);
-		} else if (!nomorFormatted.startsWith('62')) {
-		// Menambahkan '62' jika tidak ada (misal: '812...' menjadi '62812...')
-		nomorFormatted = '62' + nomorFormatted;
-		}
+      // Logika format nomor telepon
+      let nomorFormatted = nomorWhatsApp.trim().replace(/\D/g, ''); 
+      if (nomorFormatted.startsWith('0')) {
+        nomorFormatted = '62' + nomorFormatted.substring(1);
+      } else if (!nomorFormatted.startsWith('62')) {
+        nomorFormatted = '62' + nomorFormatted;
+      }
 
       const pesan = `Halo, saya ${namaLengkap}, ingin memulai konsultasi gratis dengan Customer Service LMI.`;
       
-      // URL API yang sudah diperbarui
-      const apiEndpoint = '/api/message';
-      
-      const requestBody = {
-        phone: `${nomorFormatted}@s.whatsapp.net`,
-        message: pesan
-      };
+      // --- PERUBAHAN DI SINI: Menggunakan FormData ---
+      const formData = new FormData();
+      formData.append('phone', `${nomorFormatted}@s.whatsapp.net`);
+      formData.append('message', pesan);
       
       const requestHeaders = new Headers();
-      requestHeaders.append('Content-Type', 'application/json');
+      // Kita tidak perlu set 'Content-Type', browser akan melakukannya otomatis untuk FormData
       requestHeaders.append('Authorization', 'Basic ' + btoa(API_USERNAME + ":" + API_PASSWORD));
 
       try {
-        const response = await fetch(apiEndpoint, {
+        const response = await fetch('/api/message', { // Pastikan URL API sudah benar
           method: 'POST',
           headers: requestHeaders,
-          body: JSON.stringify(requestBody)
+          body: formData // Kirim objek FormData langsung
         });
+
+        // Cek jika response bukan JSON (misal error 404/500 dari server)
+        const contentType = response.headers.get("content-type");
+        if (!response.ok || !contentType || !contentType.includes("application/json")) {
+            const textError = await response.text();
+            throw new Error(textError || `Server error: ${response.statusText}`);
+        }
 
         const result = await response.json();
 
-        if (!response.ok) {
-          throw new Error(result.message || 'Terjadi kesalahan saat mengirim data.');
+        // Jika respons dari Go WA API menandakan error
+        if (result.status === false) {
+            throw new Error(result.message || 'Gagal mengirim pesan dari server WhatsApp.');
         }
 
         formStatus.textContent = 'Pesan berhasil terkirim! Kami akan segera menghubungi Anda.';
@@ -1802,7 +1802,6 @@ import Layout from '../layouts/LMIlayout.astro';
       } catch (error) {
         console.error('Error:', error);
         
-        // Penanganan error yang sudah diperbaiki
         if (error instanceof Error) {
           formStatus.textContent = `Gagal: ${error.message}`;
         } else {

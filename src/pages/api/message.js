@@ -1,20 +1,19 @@
 // File: src/pages/api/message.js
 
-// Pastikan fungsi ini diekspor dengan nama 'POST'
-export async function POST({ request }) {
-  // Fungsi bantuan untuk mem-parsing header Authorization Basic
-  function parseAuth(header) {
-    if (!header || !header.startsWith('Basic ')) return null;
-    const base64Credentials = header.substring(6);
-    try {
-      const credentials = atob(base64Credentials);
-      const [username, password] = credentials.split(':');
-      return { username, password };
-    } catch (e) {
-      return null;
-    }
+// Fungsi bantuan untuk mem-parsing header Authorization Basic
+function parseAuth(header) {
+  if (!header || !header.startsWith('Basic ')) return null;
+  const base64Credentials = header.substring(6);
+  try {
+    const credentials = atob(base64Credentials);
+    const [username, password] = credentials.split(':');
+    return { username, password };
+  } catch (e) {
+    return null;
   }
+}
 
+export async function POST({ request }) {
   const { API_USERNAME, API_PASSWORD, GO_WHATSAPP_API_URL, GO_WHATSAPP_API_TOKEN } = import.meta.env;
 
   if (!API_USERNAME || !API_PASSWORD || !GO_WHATSAPP_API_URL || !GO_WHATSAPP_API_TOKEN) {
@@ -32,35 +31,41 @@ export async function POST({ request }) {
   }
 
   try {
-    const incomingJsonPayload = await request.json();
-    const { phone, message } = incomingJsonPayload;
+    // --- PERUBAHAN DI SINI: Membaca data sebagai FormData ---
+    const formData = await request.formData();
+    const phone = formData.get('phone') as string;
+    const message = formData.get('message') as string;
 
     if (!phone || !message) {
       return new Response(JSON.stringify({ message: 'Properti `phone` dan `message` wajib diisi.' }), { status: 400 });
     }
 
     const goWhatsappEndpoint = `${GO_WHATSAPP_API_URL}/send/message`;
+    
+    // Siapkan body untuk Go WhatsApp API tetap dalam format JSON
+    const goWhatsappBody = {
+      phone: phone, // phone sudah dalam format 62...@s.whatsapp.net dari frontend
+      message: message,
+    };
+
     const goWhatsappResponse = await fetch(goWhatsappEndpoint, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${GO_WHATSAPP_API_TOKEN}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(incomingJsonPayload) 
+      body: JSON.stringify(goWhatsappBody)
     });
 
     const responseData = await goWhatsappResponse.json();
     
-    // Kirim kembali respons dari Go WhatsApp API dengan status code yang sesuai
     return new Response(JSON.stringify(responseData), { 
-      status: goWhatsappResponse.status, // Gunakan status dari response asli
+      status: goWhatsappResponse.status,
       headers: { 'Content-Type': 'application/json' }
     });
 
   } catch (error) {
-    const errorMessage = error instanceof SyntaxError 
-      ? 'Request body bukan JSON yang valid.' 
-      : `Terjadi error internal: ${error.message}`;
+    const errorMessage = error instanceof Error ? `Terjadi error: ${error.message}` : 'Terjadi error internal.';
     return new Response(JSON.stringify({ message: errorMessage }), { status: 500 });
   }
 }
