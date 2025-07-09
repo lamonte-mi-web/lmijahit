@@ -1504,7 +1504,7 @@ import Layout from '../layouts/LMIlayout.astro';
 						</div>
 
 						<form
-							id="consultation-form"
+							id="konsultasi-form"
 							class="form-horizontal"
 						>
 							<div class="form-group colum-row row">
@@ -1757,10 +1757,10 @@ import Layout from '../layouts/LMIlayout.astro';
 
       let nomorFormatted = nomorWhatsApp.trim();
       if (nomorFormatted.startsWith('0')) {
-        nomorFormatted = '62' + nomorFormatted.substring(1);
+        nomorFormatted = '62' + nomorFormatted.substring(1) + '@s.whatsapp.net';
       }
 
-      const pesan = `Halo, saya ${namaLengkap}, ingin memulai konsultasi gratis dengan Customer Service LMI.`;
+      const pesan = `Halo ${namaLengkap}, ingin memulai konsultasi gratis dengan Customer Service LMI? Jangan sungkan, ayo berinteraksi dengan saya`;
       
       const apiEndpoint = '/send/message';
       const requestBody = { phone: nomorFormatted, message: pesan };
