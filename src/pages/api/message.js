@@ -62,7 +62,7 @@ export async function POST({ request }) {
     return new Response(JSON.stringify(responseData), { 
       status: goWhatsappResponse.status,
       headers: { 'Content-Type': 'application/json' }
-    });
+    }); 
 
   } catch (error) {
     const errorMessage = error instanceof Error ? `Terjadi error: ${error.message}` : 'Terjadi error internal.';
