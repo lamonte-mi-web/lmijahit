@@ -2,15 +2,16 @@
 import { slugifyStr } from "@/utils/slugify";
 import type { CollectionEntry } from "astro:content";
 import { getPath } from "@/utils/getPath";
+import { truncate } from "@/utils/text"; 
 import Datetime from "./Datetime.astro";
 
 export interface Props extends CollectionEntry<"blog"> {
   variant?: "h2" | "h3";
 }
 
-const { variant = "h2", data, id, filePath } = Astro.props;
+const { variant = "h2", data, id, filePath} = Astro.props;
 
-const { title, description, pubDatetime, modDatetime, timezone } = data;
+const { title, description, ogImage, tags, pubDatetime, modDatetime, timezone } = data;
 
 const headerProps = {
   style: { viewTransitionName: slugifyStr(title) },
@@ -18,7 +19,7 @@ const headerProps = {
 };
 ---
 
-<li class="my-6">
+<!--<li class="my-6">
   <a
     href={getPath(id, filePath)}
     class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
@@ -33,4 +34,50 @@ const headerProps = {
   </a>
   <Datetime {pubDatetime} {modDatetime} {timezone} />
   <p>{description}</p>
-</li>
+</li>-->
+<div class="col-sm-6 padding-15">
+  <div class="blog-item">
+    <div class="blog-thumb">
+       {ogImage && (
+      <div class="blog-thumb">
+        {typeof ogImage === "object" ? (
+          // KASUS 1: Jika ogImage adalah OBJEK (gambar lokal yang diproses)
+          // Gunakan ogImage.src, ogImage.width, dan ogImage.height
+          <img 
+            src={ogImage.src} 
+            width={ogImage.width}
+            height={ogImage.height}
+            alt={`${title}`} 
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          // KASUS 2: Jika ogImage adalah STRING (dari /public atau URL eksternal)
+          <img 
+            src={ogImage}
+            alt={`${title}`}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
+        <span class="category"><a href="#">{`${tags}`}</a></span>
+      </div>
+    )}
+    
+    </div>
+    <div class="blog-content">
+        <a href="#">
+          {
+            variant === "h2" ? (
+              // Gunakan fungsi truncate di sini
+              <h2 {...headerProps}>{truncate(title, 10)}</h2>
+            ) : (
+              // Dan juga di sini
+              <h2 {...headerProps}>{truncate(title, 10)}</h2>
+            )
+          }</a>
+      <p>{truncate(description, 100)}</p>
+      <a href={getPath(id, filePath)} class="read-more">Baca</a>
+    </div>
+  </div>
+</div>

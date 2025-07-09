@@ -1,0 +1,116 @@
+---
+// File: src/components/Header.astro
+import HeaderLink from "./LMIheaderLink.astro";
+---
+<header class="header header-one">
+    <div class="top-header-one top-bar">
+        <div class="container">
+            <div class="top-bar-inner">
+                <div class="top-left">
+                    <ul>
+                        <li>
+                            Phone: <a href="tel:+6281290279222"
+                                >+62 812-9027-9222</a
+                            >
+                        </li>
+                        <li>
+                            Email: <a href="mailto:hello@lmi.co.id"
+                                >hello@lmi.co.id</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div class="top-right">
+                    <ul class="top-social">
+                        <li>
+                            <a href="#" target="_blank"
+                                ><i class="fab fa-facebook-f"></i></a
+                            >
+                        </li>
+                        <li>
+                            <a href="#" target="_blank"
+                                ><i class="fab fa-twitter"></i></a
+                            >
+                        </li>
+                        <li>
+                            <a href="#" target="_blank"
+                                ><i class="fab fa-instagram"></i></a
+                            >
+                        </li>
+                        <li>
+                            <a href="#" target="_blank"
+                                ><i class="fab fa-pinterest"></i></a
+                            >
+                        </li>
+                        <li>
+                            <a href="#" target="_blank"
+                                ><i class="fab fa-youtube"></i></a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div><div class="primary-header-one primary-header">
+        <div class="container">
+            <div class="primary-header-inner">
+                <div class="header-logo">
+                    <a href="/">
+                        <img src="/assets/img/logo-dark.png" alt="Logo" />
+                    </a>
+                </div><div class="header-menu-wrap">
+                    <ul class="dl-menu">
+                        <li><HeaderLink href="/">Home</HeaderLink></li>
+                        <li>
+                            <a href="#">Portofolio</a>
+                            <ul>
+                                <li><HeaderLink href="/project/seragam-kerja">Seragam Kerja</HeaderLink></li>
+                                <li><HeaderLink href="/project/seragam-medis">Seragam Medis</HeaderLink></li>
+                                <li><HeaderLink href="/project/seragam-restoran">Seragam Restoran</HeaderLink></li>
+                                <li><HeaderLink href="/project/seragam-kampus">Seragam Kampus</HeaderLink></li>
+                                <li><HeaderLink href="/project/seragam-hotel">Seragam Hotel</HeaderLink></li>
+                                <li><HeaderLink href="/project/seragam-sekolah">Seragam Sekolah</HeaderLink></li>
+                            </ul>
+                        </li>
+                        <li><HeaderLink href="/about">About</HeaderLink></li>
+                        <li><HeaderLink href="/klien">Klien</HeaderLink></li>
+                        <li>
+                            <a href="#">Info</a>
+                            <ul>
+                                <li>
+                                    <HeaderLink href="/material"
+                                        >Jenis Bahan</HeaderLink>
+                                </li>
+                                <li>
+                                    <HeaderLink href="/order"
+                                        >Cara Oder</HeaderLink>
+                                </li>
+                                <li>
+                                    <HeaderLink href="/size"
+                                        >Standart Ukuran</HeaderLink>
+                                </li>
+                                <li>
+                                    <HeaderLink href="/faq">FAQ</HeaderLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><HeaderLink href="/kontak">Kontak</HeaderLink></li>
+                    </ul>
+                </div><div class="header-right">
+                    <a
+                        class="header-btn"
+                        href="https://jahit.lmi.co.id/LMIProposal.pdf"
+                        target="_blank">Lihat Proposal<span></span></a
+                    >
+                    <div class="mobile-menu-icon">
+                        <div class="burger-menu">
+                            <div class="line-menu line-half first-line"></div>
+                            <div class="line-menu"></div>
+                            <div class="line-menu line-half last-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
