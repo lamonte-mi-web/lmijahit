@@ -1740,82 +1740,69 @@ import Layout from '../layouts/LMIlayout.astro';
   const submitBtn = document.getElementById('submit-btn');
   const formStatus = document.getElementById('form-status');
   
-  // --- INFORMASI PENTING UNTUK OTENTIKASI ---
-  // Ambil kredensial dari environment variables yang dipassing ke client
-  // Pastikan Anda menambahkan prefix PUBLIC_ di file .env
   const API_USERNAME = import.meta.env.PUBLIC_API_USERNAME;
   const API_PASSWORD = import.meta.env.PUBLIC_API_PASSWORD;
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Mencegah form reload halaman
+  // --- SOLUSI: Lakukan pengecekan di sini ---
+  // Pastikan semua elemen yang dibutuhkan benar-benar ada sebelum melanjutkan
+  if (form && submitBtn && formStatus) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
 
-    // Tampilkan status loading dan nonaktifkan tombol
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Mengirim...';
-    formStatus.textContent = '';
-    formStatus.className = '';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Mengirim...';
+      formStatus.textContent = '';
+      formStatus.className = '';
 
-    // Ambil nilai dari input form
-    const namaLengkap = (document.getElementById('nama') as HTMLInputElement).value;
-    const nomorWhatsApp = (document.getElementById('whatsapp') as HTMLInputElement).value;
+      const namaLengkap = (document.getElementById('nama') as HTMLInputElement).value;
+      const nomorWhatsApp = (document.getElementById('whatsapp') as HTMLInputElement).value;
 
-    // --- 1. Format Nomor WhatsApp ---
-    // Mengubah format dari '08...' menjadi '628...'
-    let nomorFormatted = nomorWhatsApp.trim();
-    if (nomorFormatted.startsWith('0')) {
-      nomorFormatted = '62' + nomorFormatted.substring(1);
-    }
-
-    // --- 2. Buat Pesan ---
-    // Gabungkan nama ke dalam pesan default
-    const pesan = `Halo, saya ${namaLengkap}, ingin memulai konsultasi gratis dengan Customer Service LMI.`;
-    
-    // --- 3. Siapkan Request ke API ---
-    const apiEndpoint = '/send/message'; // URL endpoint API kita
-    
-    const requestBody = {
-      phone: nomorFormatted,
-      message: pesan
-    };
-    
-    const requestHeaders = new Headers();
-    requestHeaders.append('Content-Type', 'application/json');
-    // Membuat header Basic Authentication
-    requestHeaders.append('Authorization', 'Basic ' + btoa(API_USERNAME + ":" + API_PASSWORD));
-
-    try {
-      // --- 4. Kirim Data ke Endpoint ---
-      const response = await fetch(apiEndpoint, {
-        method: 'POST',
-        headers: requestHeaders,
-        body: JSON.stringify(requestBody)
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        // Jika API mengembalikan error, lempar error untuk ditangkap di blok catch
-        throw new Error(result.message || 'Terjadi kesalahan saat mengirim data.');
+      let nomorFormatted = nomorWhatsApp.trim();
+      if (nomorFormatted.startsWith('0')) {
+        nomorFormatted = '62' + nomorFormatted.substring(1);
       }
 
-      // --- 5. Tampilkan Pesan Sukses ---
-      formStatus.textContent = 'Pesan berhasil terkirim! Kami akan segera menghubungi Anda.';
-      formStatus.classList.add('success');
-      form.reset(); // Kosongkan form setelah berhasil
+      const pesan = `Halo, saya ${namaLengkap}, ingin memulai konsultasi gratis dengan Customer Service LMI.`;
+      
+      const apiEndpoint = '/send/message';
+      const requestBody = { phone: nomorFormatted, message: pesan };
+      
+      const requestHeaders = new Headers();
+      requestHeaders.append('Content-Type', 'application/json');
+      requestHeaders.append('Authorization', 'Basic ' + btoa(API_USERNAME + ":" + API_PASSWORD));
 
-    } catch (error) {
-      // --- 6. Tampilkan Pesan Error ---
-      console.error('Error:', error);
-      formStatus.textContent = `Gagal: ${error.message}`;
-      formStatus.classList.add('error');
-    } finally {
-      // --- 7. Kembalikan Tombol ke Normal ---
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Kirim';
-    }
-  });
+      try {
+        const response = await fetch(apiEndpoint, {
+          method: 'POST',
+          headers: requestHeaders,
+          body: JSON.stringify(requestBody)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          throw new Error(result.message || 'Terjadi kesalahan saat mengirim data.');
+        }
+
+        // Kode di bawah ini sekarang aman dari error 'null'
+        formStatus.textContent = 'Pesan berhasil terkirim! Kami akan segera menghubungi Anda.';
+        formStatus.classList.add('success');
+        form.reset(); 
+
+      } catch (error) {
+        console.error('Error:', error);
+        formStatus.textContent = `Gagal: ${error.message}`;
+        formStatus.classList.add('error');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Kirim';
+      }
+    });
+  } else {
+    // Pesan ini akan muncul di console browser jika ada ID HTML yang salah ketik
+    console.error('Elemen form tidak ditemukan. Pastikan ID HTML "konsultasi-form", "submit-btn", dan "form-status" sudah benar.');
+  }
 </script>
-
 <style>
   .konsultasi-container {
     max-width: 450px;
