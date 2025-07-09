@@ -1735,20 +1735,20 @@ import Layout from '../layouts/LMIlayout.astro';
 		</div>
 	</section><!-- /.testimonial-section -->
     <script>
-  // Ambil elemen dari DOM
-  const form = document.getElementById('konsultasi-form');
-  const submitBtn = document.getElementById('submit-btn');
+  // --- PERBAIKAN 1: Lakukan Type Casting di sini ---
+  // Beri tahu TypeScript jenis elemen yang lebih spesifik
+  const form = document.getElementById('konsultasi-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
   const formStatus = document.getElementById('form-status');
   
   const API_USERNAME = import.meta.env.PUBLIC_API_USERNAME;
   const API_PASSWORD = import.meta.env.PUBLIC_API_PASSWORD;
 
-  // --- SOLUSI: Lakukan pengecekan di sini ---
-  // Pastikan semua elemen yang dibutuhkan benar-benar ada sebelum melanjutkan
   if (form && submitBtn && formStatus) {
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
+      // Sekarang aman karena submitBtn adalah HTMLButtonElement
       submitBtn.disabled = true;
       submitBtn.textContent = 'Mengirim...';
       formStatus.textContent = '';
@@ -1784,23 +1784,31 @@ import Layout from '../layouts/LMIlayout.astro';
           throw new Error(result.message || 'Terjadi kesalahan saat mengirim data.');
         }
 
-        // Kode di bawah ini sekarang aman dari error 'null'
         formStatus.textContent = 'Pesan berhasil terkirim! Kami akan segera menghubungi Anda.';
         formStatus.classList.add('success');
+        
+        // Sekarang aman karena form adalah HTMLFormElement
         form.reset(); 
 
       } catch (error) {
         console.error('Error:', error);
-        formStatus.textContent = `Gagal: ${error.message}`;
+        
+        // --- PERBAIKAN 2: Lakukan Type Guard untuk error ---
+        // Cek apakah 'error' adalah sebuah instance dari Error
+        if (error instanceof Error) {
+          formStatus.textContent = `Gagal: ${error.message}`;
+        } else {
+          formStatus.textContent = 'Gagal: Terjadi kesalahan yang tidak diketahui.';
+        }
         formStatus.classList.add('error');
+
       } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Kirim';
       }
     });
   } else {
-    // Pesan ini akan muncul di console browser jika ada ID HTML yang salah ketik
-    console.error('Elemen form tidak ditemukan. Pastikan ID HTML "konsultasi-form", "submit-btn", dan "form-status" sudah benar.');
+    console.error('Elemen form tidak ditemukan. Pastikan ID HTML sudah benar.');
   }
 </script>
 <style>
