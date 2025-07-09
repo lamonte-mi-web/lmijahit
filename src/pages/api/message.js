@@ -31,10 +31,11 @@ export async function POST({ request }) {
   }
 
   try {
-    // --- PERUBAHAN DI SINI: Membaca data sebagai FormData ---
     const formData = await request.formData();
-    const phone = formData.get('phone') as string;
-    const message = formData.get('message') as string;
+    
+    // --- PERBAIKAN DI SINI: Hapus 'as string' ---
+    const phone = formData.get('phone');
+    const message = formData.get('message');
 
     if (!phone || !message) {
       return new Response(JSON.stringify({ message: 'Properti `phone` dan `message` wajib diisi.' }), { status: 400 });
@@ -42,10 +43,9 @@ export async function POST({ request }) {
 
     const goWhatsappEndpoint = `${GO_WHATSAPP_API_URL}/send/message`;
     
-    // Siapkan body untuk Go WhatsApp API tetap dalam format JSON
     const goWhatsappBody = {
-      phone: phone, // phone sudah dalam format 62...@s.whatsapp.net dari frontend
-      message: message,
+      phone: phone.toString(), // Konversi ke string untuk keamanan
+      message: message.toString(),
     };
 
     const goWhatsappResponse = await fetch(goWhatsappEndpoint, {
