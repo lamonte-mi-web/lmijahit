@@ -1733,20 +1733,20 @@ import Layout from '../layouts/LMIlayout.astro';
 		</div>
 	</section><!-- /.testimonial-section -->
     <script>
-  // --- PERBAIKAN 1: Lakukan Type Casting di sini ---
-  // Beri tahu TypeScript jenis elemen yang lebih spesifik
+  // Ambil elemen dari DOM dengan type casting
   const form = document.getElementById('konsultasi-form') as HTMLFormElement;
   const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
   const formStatus = document.getElementById('form-status');
   
+  // Ambil kredensial dari environment variables
   const API_USERNAME = import.meta.env.PUBLIC_API_USERNAME;
   const API_PASSWORD = import.meta.env.PUBLIC_API_PASSWORD;
 
+  // Pastikan semua elemen HTML ada sebelum menjalankan kode
   if (form && submitBtn && formStatus) {
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
-      // Sekarang aman karena submitBtn adalah HTMLButtonElement
       submitBtn.disabled = true;
       submitBtn.textContent = 'Mengirim...';
       formStatus.textContent = '';
@@ -1755,15 +1755,28 @@ import Layout from '../layouts/LMIlayout.astro';
       const namaLengkap = (document.getElementById('nama') as HTMLInputElement).value;
       const nomorWhatsApp = (document.getElementById('whatsapp') as HTMLInputElement).value;
 
-      let nomorFormatted = nomorWhatsApp.trim();
-      if (nomorFormatted.startsWith('0')) {
-        nomorFormatted = '62' + nomorFormatted.substring(1) + '@s.whatsapp.net';
-      }
+      // Logika format nomor telepon yang sudah diperbaiki
+      // BARU
+		let nomorFormatted = nomorWhatsApp.trim().replace(/\D/g, ''); // Hapus semua selain angka
 
-      const pesan = `Halo ${namaLengkap}, ingin memulai konsultasi gratis dengan Customer Service LMI? Jangan sungkan, ayo berinteraksi dengan saya`;
+		// Cek dan perbaiki formatnya
+		if (nomorFormatted.startsWith('0')) {
+		// Mengubah '08...' menjadi '628...'
+		nomorFormatted = '62' + nomorFormatted.substring(1);
+		} else if (!nomorFormatted.startsWith('62')) {
+		// Menambahkan '62' jika tidak ada (misal: '812...' menjadi '62812...')
+		nomorFormatted = '62' + nomorFormatted;
+		}
+
+      const pesan = `Halo, saya ${namaLengkap}, ingin memulai konsultasi gratis dengan Customer Service LMI.`;
       
-      const apiEndpoint = '/send/message';
-      const requestBody = { phone: nomorFormatted, message: pesan };
+      // URL API yang sudah diperbarui
+      const apiEndpoint = '/api/message';
+      
+      const requestBody = {
+        phone: nomorFormatted,
+        message: pesan
+      };
       
       const requestHeaders = new Headers();
       requestHeaders.append('Content-Type', 'application/json');
@@ -1784,15 +1797,12 @@ import Layout from '../layouts/LMIlayout.astro';
 
         formStatus.textContent = 'Pesan berhasil terkirim! Kami akan segera menghubungi Anda.';
         formStatus.classList.add('success');
-        
-        // Sekarang aman karena form adalah HTMLFormElement
         form.reset(); 
 
       } catch (error) {
         console.error('Error:', error);
         
-        // --- PERBAIKAN 2: Lakukan Type Guard untuk error ---
-        // Cek apakah 'error' adalah sebuah instance dari Error
+        // Penanganan error yang sudah diperbaiki
         if (error instanceof Error) {
           formStatus.textContent = `Gagal: ${error.message}`;
         } else {
@@ -1806,7 +1816,7 @@ import Layout from '../layouts/LMIlayout.astro';
       }
     });
   } else {
-    console.error('Elemen form tidak ditemukan. Pastikan ID HTML sudah benar.');
+    console.error('Satu atau lebih elemen form tidak ditemukan. Pastikan semua ID HTML sudah benar.');
   }
 </script>
 <style>
