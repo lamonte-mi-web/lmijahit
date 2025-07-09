@@ -1735,12 +1735,15 @@ import Layout from '../layouts/LMIlayout.astro';
 		</div>
 	</section><!-- /.testimonial-section -->
 <script>
-		const form = document.getElementById("consultation-form");
-		const nameInput = document.getElementById("name");
-		const waInput = document.getElementById("wa");
-		const formMessages = document.getElementById("form-messages");
-		const submitButton = document.getElementById("submit");
+	// PENAMBAHAN: Type Casting untuk memberitahu TypeScript jenis elemennya
+	const form = document.getElementById("consultation-form") as HTMLFormElement;
+	const nameInput = document.getElementById("name") as HTMLInputElement;
+	const waInput = document.getElementById("wa") as HTMLInputElement;
+	const formMessages = document.getElementById("form-messages");
+	const submitButton = document.getElementById("submit") as HTMLButtonElement;
 
+	// PENAMBAHAN: Pengecekan untuk memastikan semua elemen ada (tidak null)
+	if (form && nameInput && waInput && formMessages && submitButton) {
 		form.addEventListener("submit", async function (event) {
 			// 1. Hentikan pengiriman form default
 			event.preventDefault();
@@ -1755,30 +1758,26 @@ import Layout from '../layouts/LMIlayout.astro';
 
 			// Validasi Nama
 			if (nameValue.length < 5) {
-				formMessages.textContent =
-					"Nama harus terdiri dari minimal 5 karakter.";
+				formMessages.textContent = "Nama harus terdiri dari minimal 5 karakter.";
 				formMessages.className = "alert alert-danger";
 				return;
 			}
 			if (!/^[A-Za-z\s]+$/.test(nameValue)) {
-				formMessages.textContent =
-					"Nama hanya boleh berisi huruf dan spasi.";
+				formMessages.textContent = "Nama hanya boleh berisi huruf dan spasi.";
 				formMessages.className = "alert alert-danger";
 				return;
 			}
 
 			// Validasi Nomor WhatsApp
 			if (!/^(08\d{8,11}|628\d{7,10})$/.test(waValue)) {
-				// BAGIAN INI TELAH DIPERBAIKI
-				formMessages.textContent =
-					"Format Nomor WhatsApp tidak valid. Awali dengan 08 atau 628.";
+				formMessages.textContent = "Format Nomor WhatsApp tidak valid. Awali dengan 08 atau 628.";
 				formMessages.className = "alert alert-danger";
-				return; // Jangan lupa 'return' untuk menghentikan proses
+				return;
 			}
 
 			// 4. Jika semua valid, lanjutkan pengiriman data
 			submitButton.textContent = "Mengirim...";
-			submitButton.disabled = true;
+			submitButton.disabled = true; // Sekarang valid
 
 			const formData = new FormData(form);
 			try {
@@ -1791,17 +1790,25 @@ import Layout from '../layouts/LMIlayout.astro';
 				if (response.ok) {
 					formMessages.textContent = result.message;
 					formMessages.className = "alert alert-success";
-					form.reset();
+					form.reset(); // Sekarang valid
 				} else {
 					throw new Error(result.message);
 				}
 			} catch (error) {
-				formMessages.textContent = "Error: " + error.message;
+                // PENAMBAHAN: Pengecekan tipe error sebelum mengakses .message
+                if (error instanceof Error) {
+				    formMessages.textContent = "Error: " + error.message; // Sekarang valid
+                } else {
+                    formMessages.textContent = "Error: Terjadi kesalahan yang tidak diketahui.";
+                }
 				formMessages.className = "alert alert-danger";
 			} finally {
 				submitButton.textContent = "Kirim";
-				submitButton.disabled = false;
+				submitButton.disabled = false; // Sekarang valid
 			}
 		});
-	</script>
+	} else {
+        console.error("Satu atau lebih ID elemen form tidak ditemukan. Periksa kembali ID HTML Anda.");
+    }
+</script>
 </Layout>
