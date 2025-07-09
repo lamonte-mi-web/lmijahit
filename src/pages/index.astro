@@ -1504,14 +1504,16 @@ import Layout from '../layouts/LMIlayout.astro';
 						</div>
 
 						<form
-							id="konsultasi-form"
+							id="consultation-form"
+							action="/api/kirim-whatsapp"
+							method="post"
 							class="form-horizontal"
 						>
 							<div class="form-group colum-row row">
 								<div class="col-sm-12">
 									<input
 										type="text"
-										id="nama"
+										id="name"
 										name="name"
 										class="form-control"
 										placeholder="Nama Lengkap"
@@ -1525,8 +1527,8 @@ import Layout from '../layouts/LMIlayout.astro';
 								<div class="col-md-12">
 									<input
 										type="tel"
-										id="whatsapp"
-										name="phone"
+										id="wa"
+										name="wa"
 										class="form-control"
 										placeholder="Nomor WhatsApp (contoh: 08123456789)"
 										title="Nomor harus diawali 08 (total 10-13 digit) atau 628 (total 10-13 digit)."
@@ -1534,20 +1536,20 @@ import Layout from '../layouts/LMIlayout.astro';
 								</div>
 							</div>
 							<button
-								id="submit-btn"
+								id="submit"
 								class="default-btn"
 								type="submit"
 							>
 								Kirim
 							</button>
 							<div
-								id="form-status"
+								id="form-messages"
 								class="alert"
 								role="alert"
 								style="margin-top: 15px;"
 							>
 							</div>
-						</form>
+						</form>s
 					</div>
 				</div>
 			</div>
@@ -1733,144 +1735,73 @@ import Layout from '../layouts/LMIlayout.astro';
 		</div>
 	</section><!-- /.testimonial-section -->
 <script>
-  // Ambil elemen dari DOM
-  const form = document.getElementById('konsultasi-form') as HTMLFormElement;
-  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
-  const formStatus = document.getElementById('form-status');
-  
-  // Ambil kredensial dari environment variables
-  const API_USERNAME = import.meta.env.PUBLIC_API_USERNAME;
-  const API_PASSWORD = import.meta.env.PUBLIC_API_PASSWORD;
+		const form = document.getElementById("consultation-form");
+		const nameInput = document.getElementById("name");
+		const waInput = document.getElementById("wa");
+		const formMessages = document.getElementById("form-messages");
+		const submitButton = document.getElementById("submit");
 
-  // Pastikan semua elemen HTML ada
-  if (form && submitBtn && formStatus) {
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
+		form.addEventListener("submit", async function (event) {
+			// 1. Hentikan pengiriman form default
+			event.preventDefault();
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Mengirim...';
-      formStatus.textContent = '';
-      formStatus.className = 'alert';
+			// 2. Reset pesan error sebelumnya
+			formMessages.textContent = "";
+			formMessages.className = "alert";
 
-      const namaLengkap = (document.getElementById('nama') as HTMLInputElement).value;
-      const nomorWhatsApp = (document.getElementById('whatsapp') as HTMLInputElement).value;
+			// 3. Lakukan validasi
+			const nameValue = nameInput.value;
+			const waValue = waInput.value;
 
-      // Format nomor telepon
-      let nomorFormatted = nomorWhatsApp.trim().replace(/\D/g, ''); 
-      if (nomorFormatted.startsWith('0')) {
-        nomorFormatted = '62' + nomorFormatted.substring(1);
-      } else if (!nomorFormatted.startsWith('62')) {
-        nomorFormatted = '62' + nomorFormatted;
-      }
+			// Validasi Nama
+			if (nameValue.length < 5) {
+				formMessages.textContent =
+					"Nama harus terdiri dari minimal 5 karakter.";
+				formMessages.className = "alert alert-danger";
+				return;
+			}
+			if (!/^[A-Za-z\s]+$/.test(nameValue)) {
+				formMessages.textContent =
+					"Nama hanya boleh berisi huruf dan spasi.";
+				formMessages.className = "alert alert-danger";
+				return;
+			}
 
-      const pesan = `Halo, saya ${namaLengkap}, ingin memulai konsultasi gratis dengan Customer Service LMI.`;
-      
-      // Membuat objek FormData
-      const formData = new FormData();
-      formData.append('phone', `${nomorFormatted}@s.whatsapp.net`);
-      formData.append('message', pesan);
-      
-      const requestHeaders = new Headers();
-      requestHeaders.append('Authorization', 'Basic ' + btoa(API_USERNAME + ":" + API_PASSWORD));
+			// Validasi Nomor WhatsApp
+			if (!/^(08\d{8,11}|628\d{7,10})$/.test(waValue)) {
+				// BAGIAN INI TELAH DIPERBAIKI
+				formMessages.textContent =
+					"Format Nomor WhatsApp tidak valid. Awali dengan 08 atau 628.";
+				formMessages.className = "alert alert-danger";
+				return; // Jangan lupa 'return' untuk menghentikan proses
+			}
 
-      try {
-        const response = await fetch('/api/message', {
-          method: 'POST',
-          headers: requestHeaders,
-          body: formData // Kirim FormData
-        });
+			// 4. Jika semua valid, lanjutkan pengiriman data
+			submitButton.textContent = "Mengirim...";
+			submitButton.disabled = true;
 
-        const result = await response.json();
+			const formData = new FormData(form);
+			try {
+				const response = await fetch("/api/kirim-whatsapp", {
+					method: "POST",
+					body: formData,
+				});
+				const result = await response.json();
 
-        if (!response.ok) {
-          throw new Error(result.message || 'Terjadi kesalahan dari server.');
-        }
-
-        formStatus.textContent = 'Pesan berhasil terkirim! Kami akan segera menghubungi Anda.';
-        formStatus.classList.add('alert-success');
-        form.reset(); 
-
-      } catch (error) {
-        console.error('Error:', error);
-        if (error instanceof Error) {
-          formStatus.textContent = `Gagal: ${error.message}`;
-        } else {
-          formStatus.textContent = 'Gagal: Terjadi kesalahan yang tidak diketahui.';
-        }
-        formStatus.classList.add('alert-danger');
-
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Kirim';
-      }
-    });
-  } else {
-    console.error('Satu atau lebih elemen form tidak ditemukan. Pastikan semua ID HTML sudah benar.');
-  }
-</script>
-<style>
-  .konsultasi-container {
-    max-width: 450px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    font-family: sans-serif;
-    text-align: center;
-  }
-  h2 {
-    color: #003366; /* Biru Tua */
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  p {
-    color: #555;
-    margin-bottom: 25px;
-  }
-  input[type="text"],
-  input[type="tel"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Penting untuk padding */
-    font-size: 16px;
-  }
-  input[type="text"]:focus,
-  input[type="tel"]:focus {
-    outline: none;
-    border-color: #0055a5;
-  }
-  button {
-    width: 100%;
-    padding: 14px;
-    background-color: #ffcc00; /* Kuning */
-    border: none;
-    border-radius: 4px;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: #e6b800;
-  }
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  #form-status {
-    margin-top: 20px;
-    font-weight: bold;
-  }
-  .success {
-    color: #28a745;
-  }
-  .error {
-    color: #dc3545;
-  }
-</style>
+				if (response.ok) {
+					formMessages.textContent = result.message;
+					formMessages.className = "alert alert-success";
+					form.reset();
+				} else {
+					throw new Error(result.message);
+				}
+			} catch (error) {
+				formMessages.textContent = "Error: " + error.message;
+				formMessages.className = "alert alert-danger";
+			} finally {
+				submitButton.textContent = "Kirim";
+				submitButton.disabled = false;
+			}
+		});
+	</script>
 </Layout>
