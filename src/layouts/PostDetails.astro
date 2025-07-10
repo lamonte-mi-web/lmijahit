@@ -1,18 +1,10 @@
 ---
 import { render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/LMIlayout.astro";
-import Header from "@/components/Header.astro";
-import Footer from "@/components/Footer.astro";
 import Tag from "@/components/Tag.astro";
 import Datetime from "@/components/Datetime.astro";
-import EditPost from "@/components/EditPost.astro";
-import ShareLinks from "@/components/ShareLinks.astro";
-import BackButton from "@/components/BackButton.astro";
-import BackToTopButton from "@/components/BackToTopButton.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
-import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
-import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
 
 export interface Props {
@@ -83,59 +75,30 @@ const nextPost =
 ---
 
 <Layout {...layoutProps}>
-  <section class="page-header padding">
-    <div class="container">
-      <div class="page-content text-center">
-        <h2
-          transition:name={slugifyStr(title)}
-          class="inline-block text-2xl font-bold text-accent sm:text-3xl"
-        >
-          {title}
-        </h2>
-        <!--<p>
-          Cleanz is well known and most trusted name in home cleaning <br /> service
-          company in Bangladesh.
-        </p>-->
-      </div>
-    </div>
-  </section>
+  <section
+    style={`
+    background-image: url(${ogImage});
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+  `}
+  >
+  </section><!-- /.page-header -->
 
   <section class="blog-section padding">
     <div class="container">
       <div class="blog-wrap row">
         <div class="col-lg-8 padding-15">
           <div class="blog-single-wrap">
-            <div class="blog-thumb">
-              {
-                typeof ogImage === "object" ? (
-                  // KASUS 1: Jika ogImage adalah OBJEK (gambar lokal yang diproses)
-                  // Gunakan ogImage.src, ogImage.width, dan ogImage.height
-                  <img
-                    src={ogImage}
-                    width={ogImage}
-                    height={ogImage}
-                    alt={`${title}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  // KASUS 2: Jika ogImage adalah STRING (dari /public atau URL eksternal)
-                  <img
-                    src={ogImage}
-                    alt={`${title}`}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                )
-              }
-            </div>
             <div class="blog-single-content">
-              <h2
+              <h1
                 transition:name={slugifyStr(title)}
                 class="inline-block text-2xl font-bold text-accent sm:text-3xl"
               >
                 {title}
-              </h2>
+              </h1>
               <ul class="single-post-meta">
                 <li>
                   <a href="#"
@@ -152,215 +115,165 @@ const nextPost =
               <article>
                 <Content />
               </article>
+
+              <ul class="post-tags">
+                {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
+              </ul>
+
+              <div class="post-navigation row">
+                {
+                  prevPost && (
+                    <div class="col prev-post">
+                      <a href={getPath(prevPost.id, prevPost.filePath)}>
+                        <i class="ti-arrow-left" />
+                        Prev Post
+                      </a>
+                    </div>
+                  )
+                }
+                {
+                  nextPost && (
+                    <div class="col next-post">
+                      <a href={getPath(nextPost.id, nextPost.filePath)}>
+                        Next Post <i class="ti-arrow-right" />
+                      </a>
+                    </div>
+                  )
+                }
+              </div>
             </div>
-
-            <ul class="post-tags">
-              {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
-            </ul><!-- /.post-tags -->
-
-            <div class="post-navigation row">
-              {
-                prevPost && (
-                  <div class="col prev-post">
-                    <a href={getPath(prevPost.id, prevPost.filePath)}>
-                      <i class="ti-arrow-left" />
-                      Prev Post
-                    </a>
-                  </div>
-                )
-              }
-              {
-                nextPost && (
-                  <div class="col next-post">
-                    <a href={getPath(nextPost.id, nextPost.filePath)}>
-                      Next Post <i class="ti-arrow-right" />
-                    </a>
-                  </div>
-                )
-              }
-            </div><!-- /.post-navigation -->
           </div>
         </div>
-        <!--/.blog-single-->
-      </div>
-      <!--/.col-lg-8-->
-
-      <div class="col-lg-4 padding-15">
-        <div class="sidebar-wrap">
-          <!-- /.widget-content -->
-          <div class="widget-content">
-            <h4>Tag Clouds</h4>
-            <ul class="tags">
-              <li><a href="#">Architecture</a></li>
-              <li><a href="#">Interior Design</a></li>
-              <li><a href="#">Designing</a></li>
-              <li><a href="#">Construction</a></li>
-              <li><a href="#">Buildings</a></li>
-              <li><a href="#">Industrial</a></li>
-              <li><a href="#">Factory</a></li>
-              <li><a href="#">Material</a></li>
-            </ul>
-          </div><!-- /.widget-content -->
+        <div class="col-lg-4 padding-15">
+          <div class="sidebar-wrap">
+            <div class="widget-content">
+              <h4>Tag Clouds</h4>
+              <ul class="tags">
+                <li><a href="#">Architecture</a></li>
+                <li><a href="#">Interior Design</a></li>
+                <li><a href="#">Designing</a></li>
+                <li><a href="#">Construction</a></li>
+                <li><a href="#">Buildings</a></li>
+                <li><a href="#">Industrial</a></li>
+                <li><a href="#">Factory</a></li>
+                <li><a href="#">Material</a></li>
+              </ul>
+            </div><!-- /.widget-content -->
+          </div>
         </div>
-        <!--/.sidebar-wrap-->
       </div>
-      <!--/.col-lg-4-->
     </div>
-    <!--/.blog-wrap-->
   </section>
-  <!-- <main
- <BackButton />
-    id="main-content"
-    class:list={[
-      "mx-auto w-full max-w-app px-4 pb-12",
-      { "mt-8": !SITE.showBackButton },
-    ]}
-    data-pagefind-body
-  >
-    <h1
-      transition:name={slugifyStr(title)}
-      class="inline-block text-2xl font-bold text-accent sm:text-3xl"
-    >
-      {title}
-    </h1>
-    <div class="my-2 flex items-center gap-2">
-      <Datetime {pubDatetime} {modDatetime} {timezone} size="lg" />
-      <span aria-hidden="true" class="max-sm:hidden">|</span>
-      <EditPost {hideEditPost} {post} class="max-sm:hidden" />
-    </div>
-    <article
-      id="article"
-      class="app-prose mx-auto mt-8 max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
-    >
-      <Content />
-    </article>
+</Layout>
 
-    <hr class="my-8 border-dashed" />
+<script is:inline data-astro-rerun>
+  /** Create a progress indicator
+   *  at the top */
+  function createProgressBar() {
+    // Create the main container div
+    const progressContainer = document.createElement("div");
+    progressContainer.className =
+      "progress-container fixed top-0 z-10 h-1 w-full bg-background";
 
-    <EditPost class="sm:hidden" {hideEditPost} {post} />
+    // Create the progress bar div
+    const progressBar = document.createElement("div");
+    progressBar.className = "progress-bar h-1 w-0 bg-accent";
+    progressBar.id = "myBar";
 
-    <ul class="mt-4 mb-8 sm:my-8">
-      {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} />)}
-    </ul>
+    // Append the progress bar to the progress container
+    progressContainer.appendChild(progressBar);
 
-    <BackToTopButton />
+    // Append the progress container to the document body or any other desired parent element
+    document.body.appendChild(progressContainer);
+  }
+  createProgressBar();
 
-    <ShareLinks />
-
-    <hr class="my-6 border-dashed" />
-
-    -->
-  <!-- Previous/Next Post Buttons -->
-
-  <script is:inline data-astro-rerun>
-    /** Create a progress indicator
-     *  at the top */
-    function createProgressBar() {
-      // Create the main container div
-      const progressContainer = document.createElement("div");
-      progressContainer.className =
-        "progress-container fixed top-0 z-10 h-1 w-full bg-background";
-
-      // Create the progress bar div
-      const progressBar = document.createElement("div");
-      progressBar.className = "progress-bar h-1 w-0 bg-accent";
-      progressBar.id = "myBar";
-
-      // Append the progress bar to the progress container
-      progressContainer.appendChild(progressBar);
-
-      // Append the progress container to the document body or any other desired parent element
-      document.body.appendChild(progressContainer);
-    }
-    createProgressBar();
-
-    /** Update the progress bar
-     *  when user scrolls */
-    function updateScrollProgress() {
-      document.addEventListener("scroll", () => {
-        const winScroll =
-          document.body.scrollTop || document.documentElement.scrollTop;
-        const height =
-          document.documentElement.scrollHeight -
-          document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        if (document) {
-          const myBar = document.getElementById("myBar");
-          if (myBar) {
-            myBar.style.width = scrolled + "%";
-          }
+  /** Update the progress bar
+   *  when user scrolls */
+  function updateScrollProgress() {
+    document.addEventListener("scroll", () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (document) {
+        const myBar = document.getElementById("myBar");
+        if (myBar) {
+          myBar.style.width = scrolled + "%";
         }
+      }
+    });
+  }
+  updateScrollProgress();
+
+  /** Attaches links to headings in the document,
+   *  allowing sharing of sections easily */
+  function addHeadingLinks() {
+    const headings = Array.from(
+      document.querySelectorAll("h2, h3, h4, h5, h6")
+    );
+    for (const heading of headings) {
+      heading.classList.add("group");
+      const link = document.createElement("a");
+      link.className =
+        "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
+      link.href = "#" + heading.id;
+
+      const span = document.createElement("span");
+      span.ariaHidden = "true";
+      span.innerText = "#";
+      link.appendChild(span);
+      heading.appendChild(link);
+    }
+  }
+  addHeadingLinks();
+
+  /** Attaches copy buttons to code blocks in the document,
+   * allowing users to copy code easily. */
+  function attachCopyButtons() {
+    const copyButtonLabel = "Copy";
+    const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+    for (const codeBlock of codeBlocks) {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+
+      const copyButton = document.createElement("button");
+      copyButton.className =
+        "copy-code absolute end-3 top-3 rounded bg-muted/80 px-2 py-1 text-xs leading-4 text-foreground font-medium";
+      copyButton.innerHTML = copyButtonLabel;
+      codeBlock.setAttribute("tabindex", "0");
+      codeBlock.appendChild(copyButton);
+
+      // wrap codebock with relative parent element
+      codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
+      wrapper.appendChild(codeBlock);
+
+      copyButton.addEventListener("click", async () => {
+        await copyCode(codeBlock, copyButton);
       });
     }
-    updateScrollProgress();
 
-    /** Attaches links to headings in the document,
-     *  allowing sharing of sections easily */
-    function addHeadingLinks() {
-      const headings = Array.from(
-        document.querySelectorAll("h2, h3, h4, h5, h6")
-      );
-      for (const heading of headings) {
-        heading.classList.add("group");
-        const link = document.createElement("a");
-        link.className =
-          "heading-link ms-2 no-underline opacity-75 md:opacity-0 md:group-hover:opacity-100 md:focus:opacity-100";
-        link.href = "#" + heading.id;
+    async function copyCode(block, button) {
+      const code = block.querySelector("code");
+      const text = code?.innerText;
 
-        const span = document.createElement("span");
-        span.ariaHidden = "true";
-        span.innerText = "#";
-        link.appendChild(span);
-        heading.appendChild(link);
-      }
+      await navigator.clipboard.writeText(text ?? "");
+
+      // visual feedback that task is completed
+      button.innerText = "Copied";
+
+      setTimeout(() => {
+        button.innerText = copyButtonLabel;
+      }, 700);
     }
-    addHeadingLinks();
+  }
+  attachCopyButtons();
 
-    /** Attaches copy buttons to code blocks in the document,
-     * allowing users to copy code easily. */
-    function attachCopyButtons() {
-      const copyButtonLabel = "Copy";
-      const codeBlocks = Array.from(document.querySelectorAll("pre"));
-
-      for (const codeBlock of codeBlocks) {
-        const wrapper = document.createElement("div");
-        wrapper.style.position = "relative";
-
-        const copyButton = document.createElement("button");
-        copyButton.className =
-          "copy-code absolute end-3 top-3 rounded bg-muted/80 px-2 py-1 text-xs leading-4 text-foreground font-medium";
-        copyButton.innerHTML = copyButtonLabel;
-        codeBlock.setAttribute("tabindex", "0");
-        codeBlock.appendChild(copyButton);
-
-        // wrap codebock with relative parent element
-        codeBlock?.parentNode?.insertBefore(wrapper, codeBlock);
-        wrapper.appendChild(codeBlock);
-
-        copyButton.addEventListener("click", async () => {
-          await copyCode(codeBlock, copyButton);
-        });
-      }
-
-      async function copyCode(block, button) {
-        const code = block.querySelector("code");
-        const text = code?.innerText;
-
-        await navigator.clipboard.writeText(text ?? "");
-
-        // visual feedback that task is completed
-        button.innerText = "Copied";
-
-        setTimeout(() => {
-          button.innerText = copyButtonLabel;
-        }, 700);
-      }
-    }
-    attachCopyButtons();
-
-    /* Go to page start after page swap */
-    document.addEventListener("astro:after-swap", () =>
-      window.scrollTo({ left: 0, top: 0, behavior: "instant" })
-    );
-  </script>
-</Layout>
+  /* Go to page start after page swap */
+  document.addEventListener("astro:after-swap", () =>
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" })
+  );
+</script>
