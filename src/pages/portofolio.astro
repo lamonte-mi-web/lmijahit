@@ -1,0 +1,161 @@
+---
+// File: src/pages/index.astro
+// Halaman ini sekarang bersih dan hanya fokus pada layout dan konten halaman.
+
+import Layout from "../layouts/LMIlayout.astro"; // Pastikan path layout ini benar
+//import Medis1 from "@/assets/img/medis1.png";
+//import TabGallery from "../components/TabGallery.astro"; // Impor komponen galeri
+---
+
+<style>
+        /* Menggunakan font Inter sebagai default */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            
+        }
+        
+        /* Kustomisasi tampilan nav-pills */
+        .nav-pills .nav-link {
+            border-radius: 50rem; /* Membuat tombol lebih bulat */
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: black;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #FFF261;
+            color: #FF9000;
+        }
+
+        /* Kustomisasi kartu produk */
+        .card {
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .card-img-top {
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+        }
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Animasi fade yang lebih halus untuk tab */
+        .tab-pane.fade {
+            transition: opacity .4s ease-in-out;
+        }
+    </style>
+<!-- Gunakan Layout Anda -->
+<Layout title="Portofolio Produk | Lamonte Custom">
+  <!-- Bagian Header Halaman Anda -->
+  <section class="page-header padding">
+    <div class="container">
+      <div class="page-content text-center">
+        <h2>📏 Panduan Ukuran (Size Guide)</h2>
+        <p>
+          Pakaian yang nyaman dimulai dari ukuran yang pas. Kami menyediakan
+          panduan lengkap untuk membantu Anda<br /> mengukur badan sendiri di rumah,
+          dengan mudah dan akurat.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bagian untuk menampilkan galeri -->
+  <div class="container py-5">
+        
+        <!-- Judul Utama -->
+        <div class="text-center mb-5">
+            <h1 class="font-weight-bold">Galeri Produk Kami</h1>
+            <p class="text-muted">Temukan berbagai jenis seragam berkualitas tinggi.</p>
+        </div>
+
+        <!-- Navigasi Tab Bootstrap -->
+        <ul class="nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
+            <li class="nav-item mx-1 mb-2">
+                <a class="nav-link active" id="pills-kerja-tab" data-toggle="pill" href="#pills-kerja" role="tab" aria-controls="pills-kerja" aria-selected="true">Seragam Kerja</a>
+            </li>
+            <li class="nav-item mx-1 mb-2">
+                <a class="nav-link" id="pills-kampus-tab" data-toggle="pill" href="#pills-kampus" role="tab" aria-controls="pills-kampus" aria-selected="false">Seragam Kampus</a>
+            </li>
+            <li class="nav-item mx-1 mb-2">
+                <a class="nav-link" id="pills-medis-tab" data-toggle="pill" href="#pills-medis" role="tab" aria-controls="pills-medis" aria-selected="false">Seragam Medis</a>
+            </li>
+            <li class="nav-item mx-1 mb-2">
+                <a class="nav-link" id="pills-hotel-tab" data-toggle="pill" href="#pills-hotel" role="tab" aria-controls="pills-hotel" aria-selected="false">Seragam Hotel</a>
+            </li>
+            <li class="nav-item mx-1 mb-2">
+                <a class="nav-link" id="pills-restoran-tab" data-toggle="pill" href="#pills-restoran" role="tab" aria-controls="pills-restoran" aria-selected="false">Seragam Restoran</a>
+            </li>
+            <li class="nav-item mx-1 mb-2">
+                <a class="nav-link" id="pills-sekolah-tab" data-toggle="pill" href="#pills-sekolah" role="tab" aria-controls="pills-sekolah" aria-selected="false">Seragam Sekolah</a>
+            </li>
+        </ul>
+
+        <!-- Konten Galeri Bootstrap -->
+        <div class="tab-content" id="pills-tabContent">
+            
+            <!-- Panel Seragam Kerja -->
+            <div class="tab-pane fade show active" id="pills-kerja" role="tabpanel" aria-labelledby="pills-kerja-tab">
+                <div class="row">
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/kerja1.png" class="card-img-top" alt="Kemeja Kantor"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Kemeja Kantor</h5></div></div></div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/kerja2.png" class="card-img-top" alt="Seragam PDL"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Seragam PDL</h5></div></div></div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/kerja3.png" class="card-img-top" alt="Baju Teknisi"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Baju Teknisi</h5></div></div></div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/kerja4.png" class="card-img-top" alt="Rompi Proyek"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Rompi Proyek</h5></div></div></div>
+                </div>
+            </div>
+
+            <!-- Panel Seragam Kampus -->
+            <div class="tab-pane fade" id="pills-kampus" role="tabpanel" aria-labelledby="pills-kampus-tab">
+                <div class="row">
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/kampus1.png" class="card-img-top" alt="Almamater"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Almamater</h5></div></div></div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/kampus2.png" class="card-img-top" alt="Baju Praktik"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Baju Praktik</h5></div></div></div>
+                </div>
+            </div>
+
+            <!-- Panel Seragam Medis -->
+            <div class="tab-pane fade" id="pills-medis" role="tabpanel" aria-labelledby="pills-medis-tab">
+                <div class="row">
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/medis1.png" class="card-img-top" alt="Baju Jaga"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Baju Jaga</h5></div></div></div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/medis2.png" class="card-img-top" alt="Jas Dokter"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Jas Dokter</h5></div></div></div>
+                </div>
+            </div>
+
+            <!-- Panel Seragam Hotel -->
+            <div class="tab-pane fade" id="pills-hotel" role="tabpanel" aria-labelledby="pills-hotel-tab">
+                <div class="row">
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/hotel1.png" class="card-img-top" alt="Baju Jaga"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Baju Jaga</h5></div></div></div>
+                </div>
+            </div>
+
+            <!-- Panel Seragam restoran -->
+            <div class="tab-pane fade" id="pills-restoran" role="tabpanel" aria-labelledby="pills-restoran-tab">
+                <div class="row">
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/restoran1.png" class="card-img-top" alt="Baju Jaga"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Baju Jaga</h5></div></div></div>
+                </div>
+            </div>
+
+            <!-- Panel Seragam restoran -->
+            <div class="tab-pane fade" id="pills-sekolah" role="tabpanel" aria-labelledby="pills-sekolah-tab">
+                <div class="row">
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/sekolah1.png" class="card-img-top" alt="Baju Jaga"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Baju Jaga</h5></div></div></div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/sekolah2.png" class="card-img-top" alt="Baju Jaga"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Baju Jaga</h5></div></div></div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/sekolah3.png" class="card-img-top" alt="Baju Jaga"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Baju Jaga</h5></div></div></div>
+                    <div class="col-6 col-sm-4 col-md-3 col-lg-2 mb-4"><div class="card h-100"><img src="/assets/img/sekolah4.png" class="card-img-top" alt="Baju Jaga"><div class="card-body text-center p-3"><h5 class="card-title mb-0">Baju Jaga</h5></div></div></div>
+                </div>
+            </div>
+            
+            <!-- Tambahkan panel lainnya sesuai kebutuhan -->
+        </div>
+    </div>
+
+</Layout>
+
+<!-- Tidak perlu ada <style> atau <script> di sini lagi -->
+<!-- Semuanya sudah diurus oleh komponen TabGallery -->
