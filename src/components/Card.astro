@@ -3,7 +3,7 @@ import { slugifyStr } from "@/utils/slugify";
 import type { CollectionEntry } from "astro:content";
 import { getPath } from "@/utils/getPath";
 import { truncate } from "@/utils/text"; 
-import Datetime from "./Datetime.astro";
+//import Datetime from "./Datetime.astro";
 
 export interface Props extends CollectionEntry<"blog"> {
   variant?: "h2" | "h3";
@@ -14,7 +14,10 @@ const { variant = "h2", data, id, filePath} = Astro.props;
 const { title, description, ogImage, tags, pubDatetime, modDatetime, timezone } = data;
 
 const headerProps = {
-  style: { viewTransitionName: slugifyStr(title) },
+  style: {
+    viewTransitionName: slugifyStr(title),
+    fontSize: variant === "h2" ? "25px" : "20px"
+  },
   class: "text-lg font-medium decoration-dashed hover:underline",
 };
 ---
@@ -70,10 +73,10 @@ const headerProps = {
           {
             variant === "h2" ? (
               // Gunakan fungsi truncate di sini
-              <h2 style="font-size: 25px;" {...headerProps}>{truncate(title, 20)}</h2>
+              <h2 {...headerProps}>{truncate(title, 20)}</h2>
             ) : (
               // Dan juga di sini
-              <h2 style="font-size: 20px;" {...headerProps}>{truncate(title, 20)}</h2>
+              <h2 {...headerProps}>{truncate(title, 20)}</h2>
             )
           }</a>
       <p>{truncate(description, 100)}</p>
