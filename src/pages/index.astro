@@ -1503,12 +1503,8 @@ import Layout from '../layouts/LMIlayout.astro';
 							</p>
 						</div>
 
-						<form
-							id="consultation-form"
-							action="/api/kirim-whatsapp"
-							method="post"
-							class="form-horizontal"
-						>
+						<form id="consultation-form" class="form-horizontal">
+
 							<div class="form-group colum-row row">
 								<div class="col-sm-12">
 									<input
@@ -1735,80 +1731,75 @@ import Layout from '../layouts/LMIlayout.astro';
 		</div>
 	</section><!-- /.testimonial-section -->
 <script>
-	// PENAMBAHAN: Type Casting untuk memberitahu TypeScript jenis elemennya
-	const form = document.getElementById("consultation-form") as HTMLFormElement;
-	const nameInput = document.getElementById("name") as HTMLInputElement;
-	const waInput = document.getElementById("wa") as HTMLInputElement;
+	const form = document.getElementById("consultation-form");
+	const nameInput = document.getElementById("name");
+	const waInput = document.getElementById("wa");
 	const formMessages = document.getElementById("form-messages");
-	const submitButton = document.getElementById("submit") as HTMLButtonElement;
+	const submitButton = document.getElementById("submit");
 
-	// PENAMBAHAN: Pengecekan untuk memastikan semua elemen ada (tidak null)
 	if (form && nameInput && waInput && formMessages && submitButton) {
 		form.addEventListener("submit", async function (event) {
-			// 1. Hentikan pengiriman form default
 			event.preventDefault();
-
-			// 2. Reset pesan error sebelumnya
 			formMessages.textContent = "";
 			formMessages.className = "alert";
 
-			// 3. Lakukan validasi
-			const nameValue = nameInput.value;
-			const waValue = waInput.value;
+			const nameValue = nameInput.value.trim();
+			const waValue = waInput.value.trim();
 
-			// Validasi Nama
 			if (nameValue.length < 5) {
-				formMessages.textContent = "Nama harus terdiri dari minimal 5 karakter.";
+				formMessages.textContent = "Nama harus minimal 5 karakter.";
 				formMessages.className = "alert alert-danger";
 				return;
 			}
 			if (!/^[A-Za-z\s]+$/.test(nameValue)) {
-				formMessages.textContent = "Nama hanya boleh berisi huruf dan spasi.";
+				formMessages.textContent = "Nama hanya boleh huruf dan spasi.";
 				formMessages.className = "alert alert-danger";
 				return;
 			}
-
-			// Validasi Nomor WhatsApp
 			if (!/^(08\d{8,11}|628\d{7,10})$/.test(waValue)) {
-				formMessages.textContent = "Format Nomor WhatsApp tidak valid. Awali dengan 08 atau 628.";
+				formMessages.textContent = "Nomor WA tidak valid. Awali dengan 08 atau 628.";
 				formMessages.className = "alert alert-danger";
 				return;
 			}
 
-			// 4. Jika semua valid, lanjutkan pengiriman data
 			submitButton.textContent = "Mengirim...";
-			submitButton.disabled = true; // Sekarang valid
+			submitButton.disabled = true;
 
-			const formData = new FormData(form);
 			try {
-				const response = await fetch("/api/kirim-whatsapp", {
+				const response = await fetch("/api/kirim-whatsap", {
 					method: "POST",
-					body: formData,
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						name: nameValue,
+						wa: waValue
+					})
 				});
+
 				const result = await response.json();
 
 				if (response.ok) {
 					formMessages.textContent = result.message;
 					formMessages.className = "alert alert-success";
-					form.reset(); // Sekarang valid
+					form.reset();
 				} else {
 					throw new Error(result.message);
 				}
 			} catch (error) {
-                // PENAMBAHAN: Pengecekan tipe error sebelum mengakses .message
-                if (error instanceof Error) {
-				    formMessages.textContent = "Error: " + error.message; // Sekarang valid
-                } else {
-                    formMessages.textContent = "Error: Terjadi kesalahan yang tidak diketahui.";
-                }
+				formMessages.textContent =
+					error instanceof Error
+						? "Error: " + error.message
+						: "Error tidak diketahui.";
 				formMessages.className = "alert alert-danger";
 			} finally {
 				submitButton.textContent = "Kirim";
-				submitButton.disabled = false; // Sekarang valid
+				submitButton.disabled = false;
 			}
 		});
 	} else {
-        console.error("Satu atau lebih ID elemen form tidak ditemukan. Periksa kembali ID HTML Anda.");
-    }
+		console.error("Form atau input tidak ditemukan.");
+	}
 </script>
+
 </Layout>
