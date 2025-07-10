@@ -1731,11 +1731,12 @@ import Layout from '../layouts/LMIlayout.astro';
 		</div>
 	</section><!-- /.testimonial-section -->
 <script>
-	const form = document.getElementById("consultation-form");
-	const nameInput = document.getElementById("name");
-	const waInput = document.getElementById("wa");
-	const formMessages = document.getElementById("form-messages");
-	const submitButton = document.getElementById("submit");
+	const form = document.getElementById("consultation-form") as HTMLFormElement;
+	const nameInput = document.getElementById("name") as HTMLInputElement;
+	const waInput = document.getElementById("wa") as HTMLInputElement;
+	const formMessages = document.getElementById("form-messages") as HTMLElement;
+	const submitButton = document.getElementById("submit") as HTMLButtonElement;
+
 
 	if (form && nameInput && waInput && formMessages && submitButton) {
 		form.addEventListener("submit", async function (event) {
