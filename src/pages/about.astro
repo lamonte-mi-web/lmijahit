@@ -1,0 +1,191 @@
+---
+// File: src/pages/index.astro
+import Layout from "../layouts/LMIlayout.astro";
+
+// Impor semua komponen bagian yang akan Anda gunakan di halaman ini
+//import HeroSlider from '../components/HeroSlider.astro';
+//import AboutSection from '../components/AboutSection.astro';
+//import ServiceSection from '../components/ServiceSection.astro';
+//import BookingFormSection from '../components/BookingFormSection.astro';
+// ...impor komponen lainnya jika Anda membuatnya
+---
+
+<Layout title="Tentang Lamonte | Lamonte Costum">
+  <section class="page-header padding">
+    <div class="container">
+      <div class="page-content text-center">
+        <h2>Tentang Bisnis</h2>
+        <p>
+          Kami adalah perusahaan ritel busana yang menyediakan berbagai desain
+          unik dan berkualitas untuk pakaian anak-anak. Dengan koleksi yang
+          beragam, kami memenuhi kebutuhan gaya dan kenyamanan anak-anak.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="about-bg-holder">
+            <img class="bg-right" src="/assets/img/about-bg-2.jpg" alt="img" />
+            <img class="bg-center" src="/assets/img/about-bg-3.jpg" alt="img" />
+            <img class="bg-bottom" src="/assets/img/about-bg-4.jpg" alt="img" />
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-content">
+            <div class="section-heading wow fadeInLeft" data-wow-delay="0">
+              <h2>✂️ Kenapa Kami?</h2>
+              <p>
+                Kami adalah layanan jahit custom berbasis online dari tim
+                kreatif LMI. Dengan pengalaman bertahun-tahun di industri
+                fashion dan tekstil, kami hadir untuk membantu Anda mendapatkan
+                baju impian—pas di badan, nyaman dipakai, dan tentu saja
+                stylish.
+              </p>
+            </div>
+            <ul class="about-list-2 wow fadeInLeft" data-wow-delay="400">
+              <li>
+                <i class="fas fa-check"></i>Jahit Custom
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Konsultasi Gratis
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Ukuran Pas
+              </li>
+              <li>
+                <i class="fas fa-check"></i>Kirim ke Seluruh Indonesia
+              </li>
+            </ul>
+            <ul class="about-btn wow fadeInLeft" data-wow-delay="500ms">
+              <li>
+                <a
+                  href="https://bit.ly/LMI-pesansekarang"
+                  target="_blank"
+                  target="_blank"
+                  class="default-btn">Pesan Sekarang <span></span></a
+                >
+                <a
+                  class="whatsapp"
+                  href="https://bit.ly/LMI-pesansekarang"
+                  target="_blank"
+                  ><i class="fab fa-whatsapp"></i>+6281290279222</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- /.about-section -->
+
+  <section class="work-process-section padding">
+    <div class="process-border"></div>
+    <div class="container">
+      <div
+        class="section-heading wow fadeInUp mb-40 text-center"
+        data-wow-delay="200ms"
+      >
+        <img src="assets/img/clean.png" alt="img" />
+        <h2>4 Langkah Mudah<br /> Cara Order Mudah & Praktis</h2>
+        <p>
+          Pesan baju custom di jahit.lmi.co.id sangat mudah! Cukup ikuti 4
+          langkah sederhana berikut ini—tanpa perlu repot keluar rumah. Tim kami
+          siap membantu dari awal hingga baju selesai dan sampai ke tangan Anda.
+        </p>
+      </div>
+      <div class="row">
+        <div
+          class="col-lg-3 col-sm-6 sm-padding wow fadeInUp"
+          data-wow-delay="200ms"
+        >
+          <div class="work-pro-item">
+            <i class="far fa-calendar-check"></i>
+            <h3>Hubungi Kami</h3>
+            <p>
+              Konsultasikan kebutuhan Anda lewat WhatsApp atau form pemesanan.
+              Kami siap bantu pilih model, bahan, dan menentukan harga terbaik.
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-sm-6 sm-padding wow fadeInUp"
+          data-wow-delay="300ms"
+        >
+          <div class="work-pro-item">
+            <i class="far fa-hand-pointer"></i>
+            <h3>Kirim Ukuran & Desain</h3>
+            <p>
+              Kirim ukuran tubuh sesuai panduan, dan lampirkan referensi desain
+              baju yang diinginkan. Kami juga bisa bantu revisi atau sesuaikan.
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-sm-6 sm-padding wow fadeInUp"
+          data-wow-delay="400ms"
+        >
+          <div class="work-pro-item">
+            <i class="fas fa-broom"></i>
+            <h3>Proses Jahit Dimulai</h3>
+            <p>
+              Setelah detail disepakati dan DP dibayarkan, proses jahit langsung
+              kami mulai. Waktu pengerjaan 5–14 hari kerja, tergantung jenis
+              baju.
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-lg-3 col-sm-6 sm-padding wow fadeInUp"
+          data-wow-delay="500ms"
+        >
+          <div class="work-pro-item">
+            <i class="far fa-thumbs-up"></i>
+            <h3>Baju Siap Dikirim</h3>
+            <p>
+              Baju selesai, dicek kualitas, lalu dikirim ke alamat Anda. Kami
+              gunakan ekspedisi terpercaya dan kirimkan nomor resi untuk
+              pelacakan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- /.work-process-section -->
+
+  <section class="cta-section padding">
+    <svg viewBox="0 0 1920 479.1">
+      <path
+        class="st0"
+        fill="#f9fafa"
+        d="M1562.5,260.9c-284.2,92.3-282.6,324-778.9,108.7C304.8,161.9,19.5,335.7,0,348.3v120.8v10h1920v-10V0
+            C1715.4,15.3,1846.7,168.6,1562.5,260.9z"
+      ></path>
+    </svg>
+    <div class="container">
+      <div class="cta-content">
+        <img
+          class="wow fadeInUp"
+          data-wow-delay="0"
+          src="/assets/img/cleaning.png"
+          alt="icon"
+        />
+        <h2 class="wow fadeInUp" data-wow-delay="300ms">
+          Siap temukan<br /> baju custom impianmu?
+        </h2>
+        <p class="wow fadeInUp" data-wow-delay="400ms">
+          Lihat koleksi desain kami dan pilih yang paling cocok untuk acara
+          spesial atau keseharianmu.
+        </p>
+        <a
+          href="wa.me/6281290279222"
+          class="default-btn wow fadeInUp"
+          data-wow-delay="500ms">Pesan Sekarang<span></span></a
+        >
+      </div>
+    </div>
+  </section><!-- /.cta-section -->
+</Layout>
