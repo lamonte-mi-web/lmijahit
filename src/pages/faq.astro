@@ -1,0 +1,90 @@
+---
+// src/pages/index.astro
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="Kontak LMI | Mitra Pengadaan Seragam No 1 di Indonesia">
+    <Header />
+
+    <div class="site-preloader-wrap">
+        <div class="spinner"></div>
+    </div>
+    <!-- start -->
+
+    <section class="page-header padding">
+        <div class="container">
+            <div class="page-content text-center">
+                <h2>Frequently Asked Questions!</h2>
+                <p>Temukan jawaban dari pertanyaan umum seputar layanan kami. Mulai dari proses pemesanan, pengukuran, <br>hingga pengiriman — semua kami jelaskan di sini untuk memudahkan Anda.</p>
+            </div>
+        </div>
+    </section><!-- /.page-header -->
+
+    <section class="faq-section padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 padding-15">
+                    <div id="accordion" role="tablist">
+                        <div class="acc-item active-acc">
+                            <h5 id="faq1"><a data-toggle="collapse" href="#collapse1" aria-expanded="true" aria-controls="collapse1"> Apakah saya bisa jahit baju tanpa datang langsung?</a></h5>
+                            <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="faq1" data-parent="#accordion">
+                                <div class="card-body">
+                                    Ya! Anda bisa pesan secara online. Cukup kirim ukuran, referensi model, dan konsultasi desain melalui WhatsApp. Kami akan bantu proses dari awal hingga pengiriman.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="acc-item">
+                            <h5 id="faq2"><a class="collapsed" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2">Bagaimana cara mengukur badan sendiri?</a></h5>
+                            <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="faq2" data-parent="#accordion">
+                                <div class="card-body">
+                                    Kami menyediakan panduan ukuran lengkap yang bisa Anda ikuti di rumah. Jika perlu bantuan, tim kami siap membimbing lewat chat atau video call.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="acc-item">
+                            <h5 id="faq3"><a class="collapsed" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">Berapa lama proses jahit sampai baju dikirim?</a></h5>
+                            <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="faq3" data-parent="#accordion">
+                                <div class="card-body">
+                                    Waktu pengerjaan biasanya 5–14 hari kerja tergantung jenis baju dan antrian. Estimasi akan kami infokan saat konfirmasi pesanan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/.col-->
+                <div class="col-lg-6 padding-15">
+                    <div id="accordion" role="tablist">
+                        <div class="acc-item active-acc">
+                            <h5 id="faq4"><a data-toggle="collapse" href="#collapse4" aria-expanded="true" aria-controls="collapse4">Apakah bisa request desain sendiri?</a></h5>
+                            <div id="collapse4" class="collapse show" role="tabpanel" aria-labelledby="faq4" data-parent="#accordion">
+                                <div class="card-body">
+                                    Tentu! Anda bisa kirim sketsa, foto referensi, atau hanya ide kasarnya saja. Tim kami akan bantu visualisasikan dan sesuaikan dengan bahan yang tersedia.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="acc-item">
+                            <h5 id="faq5"><a class="collapsed" data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5">Apa bisa revisi jika hasil kurang pas?</a></h5>
+                            <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="faq5" data-parent="#accordion">
+                                <div class="card-body">
+                                    Bisa. Kami menerima revisi ukuran atau penyesuaian kecil dengan syarat dan ketentuan berlaku. Tujuan kami adalah memastikan Anda puas dengan hasilnya.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="acc-item">
+                            <h5 id="faq6"><a class="collapsed" data-toggle="collapse" href="#collapse6" aria-expanded="false" aria-controls="collapse6">Kirim ke daerah saya??</a></h5>
+                            <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="faq6" data-parent="#accordion">
+                                <div class="card-body">
+                                    Kami melayani pengiriman ke seluruh Indonesia dan internasional menggunakan jasa ekspedisi terpercaya. Anda akan menerima nomor resi untuk pelacakan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- /.faq-section -->
+
+    <Footer />
+</Layout>
