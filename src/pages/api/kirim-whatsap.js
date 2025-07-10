@@ -1,6 +1,6 @@
 export async function POST({ request }) {
-  const username = 'username';
-  const password = 'password';
+  const username = 'IDYI1bIy';
+  const password = 'Y5tXaRegKDQZ54VQKvzppBZq';
   const authHeader = 'Basic ' + Buffer.from(`${username}:${password}`).toString('base64');
 
   try {
@@ -15,17 +15,16 @@ export async function POST({ request }) {
       });
     }
 
-    // Format nomor WA
     const phone = wa.replace(/\D/g, '').replace(/^0/, '62') + '@s.whatsapp.net';
 
-    // Payload HARUS seperti yang gateway harapkan
     const payload = {
       phone,
       message: `Halo ${name}, terima kasih telah mendaftar konsultasi.`,
-      reply_message_id: "",     // atau bisa undefined jika tidak perlu
       is_forwarded: false
     };
-    console.log('Payload ke gateway:', payload); // 👈 debug
+
+    // 🟢 DEBUG: log payload yang dikirim ke gateway
+    console.log('\n📤 Payload ke WhatsApp Gateway:\n', JSON.stringify(payload, null, 2));
 
     const res = await fetch('https://gowa-nbztklhaqm8v.caca.sumopod.my.id/send/message', {
       method: 'POST',
@@ -39,12 +38,15 @@ export async function POST({ request }) {
     let result = {};
     try {
       result = await res.json();
-    } catch (e) {
-      // Kosong tidak apa
+    } catch {
+      console.warn('⚠️ Response gateway tidak berupa JSON.');
     }
 
+    // 🟡 DEBUG: log respons dari gateway
+    console.log('\n📥 Respons dari WhatsApp Gateway:\n', result);
+
     if (!res.ok) {
-      throw new Error(result?.message || 'Gagal kirim pesan ke WhatsApp Gateway.');
+      throw new Error(result?.message || 'Gagal mengirim ke gateway.');
     }
 
     return new Response(JSON.stringify({ message: 'Pesan berhasil dikirim!' }), {
@@ -53,6 +55,7 @@ export async function POST({ request }) {
     });
 
   } catch (error) {
+    console.error('❌ Error kirim ke WhatsApp Gateway:', error);
     return new Response(JSON.stringify({
       message: error instanceof Error ? error.message : 'Server error'
     }), {
