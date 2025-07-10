@@ -10,5 +10,5 @@ draft: false
 tags:
   - Fashion
 description:
-  BSoroti tren penggunaan pakaian jahit custom sebagai bagian dari ekspresi diri.
+  Soroti tren penggunaan pakaian jahit custom sebagai bagian dari ekspresi diri.
 ---

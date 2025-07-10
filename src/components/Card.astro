@@ -70,10 +70,10 @@ const headerProps = {
           {
             variant === "h2" ? (
               // Gunakan fungsi truncate di sini
-              <h2 {...headerProps}>{truncate(title, 10)}</h2>
+              <h2 style="font-size: 25px;" {...headerProps}>{truncate(title, 20)}</h2>
             ) : (
               // Dan juga di sini
-              <h2 {...headerProps}>{truncate(title, 10)}</h2>
+              <h2 style="font-size: 20px;" {...headerProps}>{truncate(title, 20)}</h2>
             )
           }</a>
       <p>{truncate(description, 100)}</p>
