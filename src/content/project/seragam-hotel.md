@@ -1,17 +1,15 @@
 ---
-title: '🏛️ Seragam Hotel & Hospitality'
-pubDate: 2025-07-04
-description: 'Seragam Kerja Custom Berkualitas | Harga Murah dan Berkualitas' # PASTIKAN BARIS INI ADA
-author: 'Nama Anda'
-heroImage: '/assets/img/6.png'
----
-
-Untuk resepsionis, housekeeping, bellboy, dan tim operasional hotel. Kami menyediakan seragam elegan yang mencerminkan standar layanan tinggi, dengan bahan yang nyaman digunakan dalam durasi panjang.
-
----
-
-- ✅ **Bahan Umum**  
-  Kami gunakan bahan seperti Oxford, Tropical, PE Rayon
-- ✅ **Keunggulan**  
-  Tampilan profesional, nyaman digunakan seharian, mudah disetrika
+author: Sat Naing
+pubDatetime: 2022-09-23T15:22:00Z
+modDatetime: 2025-06-13T16:52:45.934Z
+title: Seragam Hotel
+slug: seragam-hotel
+ogImage: '@/assets/img/3.png'
+featured: true
+draft: false
+tags:
+  - docs
+description:
+  Some rules & recommendations for creating or adding new posts using AstroPaper
+  theme.
 ---

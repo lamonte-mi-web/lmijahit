@@ -4,7 +4,7 @@
 // 1. IMPORT DEPENDENSI
 // Hanya import yang benar-benar dibutuhkan.
 export const prerender = true;
-import type { GetStaticPaths } from "astro";
+//import type { GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/LMIlayout.astro"; // Pastikan path ini benar menuju Layout Anda
 // 2. GETSTATICPATHS
@@ -40,7 +40,7 @@ const { Content } = await post.render();
                     <div class="blog-single-wrap">
                         <div class="blog-thumb">
                             <img
-                                src={post.data.heroImage}
+                                src={post.data.ogImage}
                                 alt="img"
                                 height="300"
                                 style="width: 100%; height: 300px; object-fit: cover;"

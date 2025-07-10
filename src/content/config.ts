@@ -7,9 +7,10 @@ const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    author: z.string().default('Tim Redaksi'), // Nilai default jika tidak diisi
+    author: z.string().default('Tim LMI'), // Nilai default jika tidak diisi
     pubDate: z.date(),
-    heroImage: z.string().optional(), // Gambar tidak wajib
+    slug: z.string(),
+    ogImage: z.string().optional(), // Gambar tidak wajib
     tags: z.array(z.string()).optional(), // Tags tidak wajib
   }),
 });
