@@ -1,0 +1,648 @@
+---
+// File: src/pages/index.astro
+import Layout from "../layouts/LMIlayout.astro";
+
+// Impor semua komponen bagian yang akan Anda gunakan di halaman ini
+//import HeroSlider from '../components/HeroSlider.astro';
+//import AboutSection from '../components/AboutSection.astro';
+//import ServiceSection from '../components/ServiceSection.astro';
+//import BookingFormSection from '../components/BookingFormSection.astro';
+// ...impor komponen lainnya jika Anda membuatnya
+---
+
+<Layout title="Kontak pengadaan baju Terbaik | Lamonte Costum">
+  <div class="mapouter">
+    <div class="gmap_canvas">
+      <iframe
+
+
+
+
+
+
+
+
+        width="100%"
+
+
+
+
+
+
+
+
+        height="350"
+
+
+
+
+
+
+
+
+        id="gmap_canvas"
+
+
+
+
+
+
+
+
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.522262276505!2d106.8203648153442!3d-6.19456509551484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f421f5e3d78d%3A0x2855b33c20e5e010!2sJl.%20Hayam%20Wuruk%20No.111%2C%20RT.1%2FRW.6%2C%20Maphar%2C%20Kec.%20Taman%20Sari%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2011160!5e0!3m2!1sen!2sid!4v1678886543210!5m2!1sen!2sid"
+
+
+
+
+
+
+
+
+        frameborder="0"
+
+
+
+
+
+
+
+
+        scrolling="no"
+
+
+
+
+
+
+
+
+        marginheight="0"
+
+
+
+
+
+
+
+
+        marginwidth="0"
+
+
+
+
+
+
+
+
+        style="border:0;"
+
+
+
+
+
+
+
+
+        allowfullscreen=""
+
+
+
+
+
+
+
+
+        loading="lazy"
+
+
+
+
+
+
+
+
+        referrerpolicy="no-referrer-when-downgrade"
+
+
+
+
+
+        ></iframe>
+    </div>
+    <style>
+      .mapouter {
+        position: relative;
+        text-align: right;
+        height: 350px;
+        width: 100%;
+      }
+
+      .gmap_canvas {
+        overflow: hidden;
+        background: none !important;
+        height: 350px;
+        width: 100%;
+      }
+    </style>
+  </div>
+  <section class="contact-section bg-grey padding">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 sm-padding">
+          <div class="contact-info">
+            <h2>Hubungi Kami, jangan ragu</h2>
+            <p>
+              Jasa jahit custom terpercaya sejak 2011. Melayani                
+                          pembuatan pakaian sesuai desain dan ukuran Anda,      
+                                    dengan hasil rapi dan bahan berkualitas.
+            </p>
+            <h3>Jalan Hayam Wuruk no. 111 ZC</h3>
+            <h4>
+              <span>Email:</span> hallo@lmi.co.id <br />
+              <span>Phone:</span>+62 8129 0279 222
+            </h4>
+          </div>
+        </div>
+        <div class="col-lg-6 sm-padding">
+          <div class="center">
+            <div id="form-messages" class="alert" role="alert"></div>
+            <form id="contact-form" method="POST">
+              <div class="form-group colum-row row">
+                <div class="col-sm-12">
+                  <input
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    type="email"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    id="email"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    name="email"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    class="form-control"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    placeholder="Email"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    required
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <textarea
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    id="message"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    name="message"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    cols="30"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    rows="5"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    class="form-control message"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    placeholder="Message"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    required></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <button
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    id="submit"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    class="default-btn"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    type="submit"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    name="send"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    >Send Message <span></span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const form = document.getElementById("contact-form");
+    const formMessages = document.getElementById("form-messages");
+    const successAlert = `
+		<div class="alert alert-success" role="alert">
+
+  Kirim persan berhasil, tunggu kami ya!
+
+</div>`;
+    const errorAlert = `
+		<div class="alert alert-warning" role="alert">
+
+  Terjadi kesalahan saat mengirim pesan!
+
+</div>`;
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      formMessages.innerHTML = "";
+      const submitButton = form.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      submitButton.textContent = "Mengirim...";
+      // LANGKAH 1: Atur gaya secara paksa dengan JavaScript
+      // Ini akan menimpa CSS apapun dari file eksternal.
+      formMessages.style.setProperty("display", "block", "important");
+      formMessages.style.setProperty("position", "static", "important");
+      formMessages.style.setProperty("background", "none", "important");
+      formMessages.style.setProperty("width", "100%", "important");
+      formMessages.style.setProperty("height", "auto", "important");
+      formMessages.style.setProperty("margin-bottom", "1rem", "important");
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      try {
+        const response = await fetch("/api/send-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        if (response.ok) {
+          formMessages.innerHTML = successAlert;
+          form.reset();
+        } else {
+          formMessages.innerHTML = errorAlert;
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        formMessages.innerHTML = errorAlert;
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = "Send Message  < span > < /span>";
+        // LANGKAH 2: Atur agar notifikasi hilang setelah 5 detik
+        setTimeout(() => {
+          formMessages.style.display = "none";
+          formMessages.innerHTML = "";
+        }, 5000);
+      }
+    });
+  </script>
+</Layout>
