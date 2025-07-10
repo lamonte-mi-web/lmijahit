@@ -3,6 +3,7 @@ import { render, type CollectionEntry } from "astro:content";
 import Layout from "@/layouts/LMIlayout.astro";
 import Tag from "@/components/Tag.astro";
 import Datetime from "@/components/Datetime.astro";
+import ShareLinks from "@/components/ShareLinks.astro";
 import { getPath } from "@/utils/getPath";
 import { slugifyStr } from "@/utils/slugify";
 import { SITE } from "@/config";
@@ -159,6 +160,7 @@ const nextPost =
                 <li><a href="#">Material</a></li>
               </ul>
             </div><!-- /.widget-content -->
+             <ShareLinks />
           </div>
         </div>
       </div>
