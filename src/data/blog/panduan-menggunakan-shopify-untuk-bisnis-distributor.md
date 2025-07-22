@@ -1,5 +1,5 @@
 ---
-author: Reza Alvaero
+author: Dev Marcel2405
 pubDatetime: 2025-07-22T10:00:00Z
 modDatetime: 2025-07-22T10:00:00Z
 title: Panduan Lengkap Menggunakan Shopify untuk Bisnis Distributor Anda
