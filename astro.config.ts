@@ -10,9 +10,12 @@ import {
 } from "@shikijs/transformers";
 import { transformerFileName } from "./src/utils/transformers/fileName";
 import { SITE } from "./src/config";
+import vercel from "@astrojs/vercel/serverless"; // or /edge if you prefer
+
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: vercel({}), // ⬅️ Add this line
   site: SITE.website,
   integrations: [
     sitemap({
