@@ -82,7 +82,7 @@
 }
 .dl-slider .dl-btn-group{
 	margin-top: 25px;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 .dl-slider .dl-btn{
 	background-color: #FFF261;
@@ -93,7 +93,12 @@
 	font-family: "Heebo", sans-serif;
 	letter-spacing: 0;
 	font-weight: 600;
-	transition: all 0.2s ease-in-out;
+	transition: all ease 700ms;
+    -moz-transition: all ease 700ms;
+    -webkit-transition: all ease 700ms;
+    -ms-transition: all ease 700ms;
+    -o-transition: all ease 700ms;
+    z-index: 1;
     display: inline-block;
     padding: 0 30px;
     line-height: 45px;

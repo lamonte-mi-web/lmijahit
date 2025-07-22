@@ -51,7 +51,7 @@
 
         $('.header-menu-wrap .dropdown-plus').on("click", function () {
             $(this).prev('ul').slideToggle(300);
-            $(this, ).toggleClass('dropdown-open');
+            $(this,).toggleClass('dropdown-open');
             $('.header-menu-wrap ul li:has(ul)').toggleClass('dropdown-open');
         });
 
@@ -109,24 +109,18 @@
             });
         });
 
-        // Header BTN Effect
-        $('.header-btn').on('mouseenter', function (e) {
+        // Unified Ripple Effect for Buttons and Icons
+        $('.header-btn, .custom-btn, .ripple-wrapper').on('mouseenter mouseout', function (e) {
             var parentOffset = $(this).offset(),
                 relX = e.pageX - parentOffset.left,
                 relY = e.pageY - parentOffset.top;
+
             $(this).find('span').css({
                 top: relY,
                 left: relX
-            })
-        }).on('mouseout', function (e) {
-            var parentOffset = $(this).offset(),
-                relX = e.pageX - parentOffset.left,
-                relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({
-                top: relY,
-                left: relX
-            })
+            });
         });
+        
 
         /* Smooth Scrolling */
         $('a[href*="#"]').smoothscroll({
@@ -217,11 +211,11 @@
                     $(this).html(countNumber);
                 });
             }, {
-                offset: "80%",
-                triggerOnce: true
-            }
+            offset: "80%",
+            triggerOnce: true
+        }
         );
-        
+
         /* ======= CurrentYear ======= */
         var currentYear = new Date().getFullYear();
         $('#currentYear').append(currentYear);
@@ -297,22 +291,22 @@
                         slidesToShow: 3,
                         slidesToScroll: 3,
                     }
-            },
+                },
                 {
                     breakpoint: 767,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 2
                     }
-            },
+                },
                 {
                     breakpoint: 580,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1
                     }
-            }
-        ]
+                }
+            ]
         });
 
         /* ======= YT Player ======= */
@@ -338,22 +332,22 @@
                         slidesToShow: 1,
                         slidesToScroll: 1,
                     }
-            },
+                },
                 {
                     breakpoint: 767,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
                     }
-            },
+                },
                 {
                     breakpoint: 580,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1
                     }
-            }
-        ]
+                }
+            ]
         });
 
         /* ======= Project Details ======= */
@@ -376,22 +370,22 @@
                         slidesToShow: 1,
                         slidesToScroll: 1,
                     }
-            },
+                },
                 {
                     breakpoint: 767,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
                     }
-            },
+                },
                 {
                     breakpoint: 580,
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1
                     }
-            }
-        ]
+                }
+            ]
         });
 
         /* ======= Simple Parralax ======= */
