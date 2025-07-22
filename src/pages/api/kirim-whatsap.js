@@ -1,3 +1,5 @@
+export const prerender = false;
+
 export async function POST({ request }) {
   const username = 'IDYI1bIy';
   const password = 'Y5tXaRegKDQZ54VQKvzppBZq';
