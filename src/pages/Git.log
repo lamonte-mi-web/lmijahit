@@ -1,0 +1,135 @@
+2025-07-22 08:04:08.584 [info] [main] Log level: Info
+2025-07-22 08:04:08.584 [info] [main] Validating found git in: "C:\Program Files\Git\cmd\git.exe"
+2025-07-22 08:04:08.753 [info] [main] Using git "2.50.0.windows.2" from "C:\Program Files\Git\cmd\git.exe"
+2025-07-22 08:04:08.753 [info] [Model][doInitialScan] Initial repository scan started
+2025-07-22 08:04:08.870 [info] > git rev-parse --show-toplevel [84ms]
+2025-07-22 08:04:08.974 [info] > git rev-parse --git-dir --git-common-dir [98ms]
+2025-07-22 08:04:09.000 [info] [Model][openRepository] Opened repository (path): d:\Dev - Marcel\lmijahit
+2025-07-22 08:04:09.000 [info] [Model][openRepository] Opened repository (real path): d:\Dev - Marcel\lmijahit
+2025-07-22 08:04:09.189 [info] > git rev-parse --show-toplevel [177ms]
+2025-07-22 08:04:09.222 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [202ms]
+2025-07-22 08:04:09.239 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open 'd:\Dev - Marcel\lmijahit\.git\refs\remotes\origin\main'
+2025-07-22 08:04:09.736 [info] > git rev-parse refs/remotes/origin/main [497ms]
+2025-07-22 08:04:09.736 [info] > git rev-parse --show-toplevel [536ms]
+2025-07-22 08:04:09.737 [info] > git config --get commit.template [728ms]
+2025-07-22 08:04:10.010 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [260ms]
+2025-07-22 08:04:10.071 [info] > git check-ignore -v -z --stdin [314ms]
+2025-07-22 08:04:10.656 [info] > git rev-parse --show-toplevel [648ms]
+2025-07-22 08:04:10.815 [info] > git rev-parse --show-toplevel [104ms]
+2025-07-22 08:04:10.921 [info] > git rev-parse --show-toplevel [100ms]
+2025-07-22 08:04:11.001 [info] > git rev-parse --show-toplevel [77ms]
+2025-07-22 08:04:11.004 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-07-22 08:04:11.199 [info] > git ls-files --stage -- src/pages/index.astro [182ms]
+2025-07-22 08:04:11.208 [info] > git show --textconv :src/pages/index.astro [197ms]
+2025-07-22 08:04:11.302 [info] > git cat-file -s 8e239f3999c0165d84b30e6e4c3434f682820b28 [99ms]
+2025-07-22 08:04:11.501 [info] > git status -z -uall [1759ms]
+2025-07-22 08:04:11.845 [info] > git config --get --local branch.main.github-pr-owner-number [157ms]
+2025-07-22 08:04:11.845 [warning] [Git][config] git config failed: Failed to execute git
+2025-07-22 08:04:11.859 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [291ms]
+2025-07-22 08:04:11.859 [info] > git config --get commit.template [301ms]
+2025-07-22 08:04:11.859 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [318ms]
+2025-07-22 08:04:11.896 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open 'd:\Dev - Marcel\lmijahit\.git\refs\remotes\origin\main'
+2025-07-22 08:04:11.940 [info] > git config --get --local branch.main.vscode-merge-base [74ms]
+2025-07-22 08:04:11.995 [info] > git rev-parse refs/remotes/origin/main [99ms]
+2025-07-22 08:04:12.022 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/origin/main refs/remotes/origin/main [77ms]
+2025-07-22 08:04:12.118 [info] > git merge-base refs/heads/main refs/remotes/origin/main [89ms]
+2025-07-22 08:04:12.128 [info] > git blame --root --incremental de17e50f0920a193c4a9d8e982cbd20aa0d461f6 -- src/pages/index.astro [140ms]
+2025-07-22 08:04:12.151 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [149ms]
+2025-07-22 08:04:12.201 [info] > git diff --name-status -z --diff-filter=ADMR de17e50f0920a193c4a9d8e982cbd20aa0d461f6...refs/remotes/origin/main [77ms]
+2025-07-22 08:04:12.313 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full --stdin [277ms]
+2025-07-22 08:04:12.421 [info] > git check-ignore -v -z --stdin [74ms]
+2025-07-22 08:04:12.849 [info] > git status -z -uall [850ms]
+2025-07-22 08:05:49.962 [info] > git add -A -- . [559ms]
+2025-07-22 08:05:50.039 [info] > git -c user.useConfigOnly=true commit --quiet --allow-empty-message --file - [74ms]
+2025-07-22 08:05:50.071 [info] > git config --get commit.template [29ms]
+2025-07-22 08:05:50.112 [info] > git config --get commit.template [38ms]
+2025-07-22 08:05:50.115 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [38ms]
+2025-07-22 08:05:50.118 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open 'd:\Dev - Marcel\lmijahit\.git\refs\remotes\origin\main'
+2025-07-22 08:05:50.148 [info] > git rev-parse refs/remotes/origin/main [29ms]
+2025-07-22 08:05:50.188 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [34ms]
+2025-07-22 08:05:50.188 [info] > git status -z -uall [38ms]
+2025-07-22 08:05:50.265 [info] > git merge-base refs/heads/main refs/remotes/origin/main [67ms]
+2025-07-22 08:05:50.271 [info] > git blame --root --incremental 60ed48463a97cc198fb70085ba90d6df73d24ce5 -- src/pages/index.astro [77ms]
+2025-07-22 08:05:50.319 [info] > git config --get --local branch.main.github-pr-owner-number [60ms]
+2025-07-22 08:05:50.319 [warning] [Git][config] git config failed: Failed to execute git
+2025-07-22 08:05:50.337 [info] > git config --get commit.template [72ms]
+2025-07-22 08:05:50.340 [info] > git diff --name-status -z --diff-filter=ADMR de17e50f0920a193c4a9d8e982cbd20aa0d461f6...refs/remotes/origin/main [71ms]
+2025-07-22 08:05:50.351 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [75ms]
+2025-07-22 08:05:50.356 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open 'd:\Dev - Marcel\lmijahit\.git\refs\remotes\origin\main'
+2025-07-22 08:05:50.393 [info] > git rev-parse refs/remotes/origin/main [36ms]
+2025-07-22 08:05:50.413 [info] > git log --format=%H%n%aN%n%aE%n%at%n%ct%n%P%n%D%n%B -z --shortstat --diff-merges=first-parent -n50 --skip=0 --topo-order --decorate=full --stdin [157ms]
+2025-07-22 08:05:50.443 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [46ms]
+2025-07-22 08:05:50.445 [info] > git status -z -uall [51ms]
+2025-07-22 08:05:51.327 [info] > git ls-files --stage -- src/pages/index.astro [41ms]
+2025-07-22 08:05:51.363 [info] > git cat-file -s 9754f0809247bf822b1ff3718db03f835a50ca39 [34ms]
+2025-07-22 08:05:51.404 [info] > git show --textconv :src/pages/index.astro [37ms]
+2025-07-22 08:05:54.175 [info] > git log --oneline --cherry main...main@{upstream} -- [39ms]
+2025-07-22 08:05:55.515 [info] > git ls-files --stage -- src/pages/index.astro [42ms]
+2025-07-22 08:05:55.553 [info] > git cat-file -s 9754f0809247bf822b1ff3718db03f835a50ca39 [35ms]
+2025-07-22 08:05:55.564 [info] > git pull --tags origin main [1385ms]
+2025-07-22 08:05:55.564 [info] From https://github.com/lamonte-mi-web/lmijahit
+ * branch            main       -> FETCH_HEAD
+2025-07-22 08:05:55.595 [info] > git show --textconv :src/pages/index.astro [40ms]
+2025-07-22 08:05:56.903 [info] > git ls-files --stage -- src/pages/index.astro [56ms]
+2025-07-22 08:05:56.935 [info] > git cat-file -s 9754f0809247bf822b1ff3718db03f835a50ca39 [29ms]
+2025-07-22 08:05:56.969 [info] > git show --textconv :src/pages/index.astro [32ms]
+2025-07-22 08:05:57.994 [info] > git push origin main:main [2427ms]
+2025-07-22 08:05:57.994 [info] To https://github.com/lamonte-mi-web/lmijahit.git
+ ! [remote rejected] main -> main (permission denied)
+error: failed to push some refs to 'https://github.com/lamonte-mi-web/lmijahit.git'
+2025-07-22 08:05:58.031 [info] > git config --get commit.template [34ms]
+2025-07-22 08:05:58.037 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [36ms]
+2025-07-22 08:05:58.039 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open 'd:\Dev - Marcel\lmijahit\.git\refs\remotes\origin\main'
+2025-07-22 08:05:58.068 [info] > git rev-parse refs/remotes/origin/main [30ms]
+2025-07-22 08:05:58.107 [info] > git status -z -uall [36ms]
+2025-07-22 08:05:58.107 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [35ms]
+2025-07-22 08:06:15.906 [info] > git log --oneline --cherry main...main@{upstream} -- [33ms]
+2025-07-22 08:06:16.788 [info] > git pull --tags origin main [881ms]
+2025-07-22 08:06:16.788 [info] From https://github.com/lamonte-mi-web/lmijahit
+ * branch            main       -> FETCH_HEAD
+2025-07-22 08:06:16.822 [info] > git config --get commit.template [32ms]
+2025-07-22 08:06:16.827 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [35ms]
+2025-07-22 08:06:16.830 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open 'd:\Dev - Marcel\lmijahit\.git\refs\remotes\origin\main'
+2025-07-22 08:06:16.859 [info] > git rev-parse refs/remotes/origin/main [29ms]
+2025-07-22 08:06:16.896 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [32ms]
+2025-07-22 08:06:16.898 [info] > git status -z -uall [37ms]
+2025-07-22 08:06:17.971 [info] > git ls-files --stage -- src/pages/index.astro [32ms]
+2025-07-22 08:06:18.000 [info] > git cat-file -s 9754f0809247bf822b1ff3718db03f835a50ca39 [28ms]
+2025-07-22 08:06:18.033 [info] > git show --textconv :src/pages/index.astro [30ms]
+2025-07-22 08:06:24.840 [info] > git fetch [888ms]
+2025-07-22 08:06:24.877 [info] > git config --get commit.template [34ms]
+2025-07-22 08:06:24.881 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [36ms]
+2025-07-22 08:06:24.883 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open 'd:\Dev - Marcel\lmijahit\.git\refs\remotes\origin\main'
+2025-07-22 08:06:24.913 [info] > git rev-parse refs/remotes/origin/main [29ms]
+2025-07-22 08:06:24.951 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [34ms]
+2025-07-22 08:06:24.952 [info] > git status -z -uall [37ms]
+2025-07-22 08:06:26.053 [info] > git config --get commit.template [36ms]
+2025-07-22 08:06:26.055 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [36ms]
+2025-07-22 08:06:26.058 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open 'd:\Dev - Marcel\lmijahit\.git\refs\remotes\origin\main'
+2025-07-22 08:06:26.088 [info] > git rev-parse refs/remotes/origin/main [31ms]
+2025-07-22 08:06:26.128 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [36ms]
+2025-07-22 08:06:26.131 [info] > git status -z -uall [40ms]
+2025-07-22 08:06:26.160 [info] > git ls-files --stage -- src/pages/index.astro [34ms]
+2025-07-22 08:06:26.195 [info] > git cat-file -s 9754f0809247bf822b1ff3718db03f835a50ca39 [33ms]
+2025-07-22 08:06:26.236 [info] > git show --textconv :src/pages/index.astro [32ms]
+2025-07-22 08:06:28.239 [info] > git log --oneline --cherry main...main@{upstream} -- [41ms]
+2025-07-22 08:06:29.144 [info] > git pull --tags origin main [903ms]
+2025-07-22 08:06:29.144 [info] From https://github.com/lamonte-mi-web/lmijahit
+ * branch            main       -> FETCH_HEAD
+2025-07-22 08:06:30.332 [info] > git ls-files --stage -- src/pages/index.astro [34ms]
+2025-07-22 08:06:30.369 [info] > git cat-file -s 9754f0809247bf822b1ff3718db03f835a50ca39 [35ms]
+2025-07-22 08:06:30.407 [info] > git show --textconv :src/pages/index.astro [35ms]
+2025-07-22 08:06:31.242 [info] > git push origin main:main [2095ms]
+2025-07-22 08:06:31.242 [info] To https://github.com/lamonte-mi-web/lmijahit.git
+ ! [remote rejected] main -> main (permission denied)
+error: failed to push some refs to 'https://github.com/lamonte-mi-web/lmijahit.git'
+2025-07-22 08:06:31.293 [info] > git config --get commit.template [41ms]
+2025-07-22 08:06:31.298 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) --ignore-case refs/heads/main refs/remotes/main [41ms]
+2025-07-22 08:06:31.300 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open 'd:\Dev - Marcel\lmijahit\.git\refs\remotes\origin\main'
+2025-07-22 08:06:31.329 [info] > git rev-parse refs/remotes/origin/main [30ms]
+2025-07-22 08:06:31.367 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [33ms]
+2025-07-22 08:06:31.368 [info] > git status -z -uall [38ms]
+2025-07-22 08:06:53.381 [info] > git check-ignore -v -z --stdin [33ms]
+2025-07-22 08:06:57.726 [info] > git check-ignore -v -z --stdin [32ms]
+2025-07-22 08:07:01.645 [info] > git check-ignore -v -z --stdin [33ms]
+2025-07-22 08:07:07.504 [info] > git check-ignore -v -z --stdin [29ms]
