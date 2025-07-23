@@ -1,0 +1,194 @@
+---
+interface Props {
+  isHomepage?: boolean;
+}
+
+const { isHomepage = true } = Astro.props;
+
+const productTabs = [
+  {
+    id: "kerja",
+    title: "Seragam Kerja",
+    items: [
+      { name: "Kemeja Kantor", img: "/assets/img/kerja1.png" },
+      { name: "Seragam PDL", img: "/assets/img/kerja2.png" },
+      { name: "Baju Teknisi", img: "/assets/img/kerja3.png" },
+      { name: "Rompi Proyek", img: "/assets/img/kerja4.png" },
+      { name: "Kemeja Kantor", img: "/assets/img/kerja1.png" },
+      { name: "Seragam PDL", img: "/assets/img/kerja2.png" },
+      { name: "Kemeja Kantor", img: "/assets/img/kerja1.png" },
+      { name: "Seragam PDL", img: "/assets/img/kerja2.png" },
+      { name: "Baju Teknisi", img: "/assets/img/kerja3.png" },
+      { name: "Rompi Proyek", img: "/assets/img/kerja4.png" },
+      { name: "Kemeja Kantor", img: "/assets/img/kerja1.png" },
+      { name: "Seragam PDL", img: "/assets/img/kerja2.png" },
+    ],
+  },
+  {
+    id: "kampus",
+    title: "Seragam Kampus",
+    items: [
+      { name: "Almamater", img: "/assets/img/kampus1.png" },
+      { name: "Baju Praktik", img: "/assets/img/kampus2.png" },
+      { name: "Almamater", img: "/assets/img/kampus1.png" },
+      { name: "Baju Praktik", img: "/assets/img/kampus2.png" },
+      { name: "Almamater", img: "/assets/img/kampus1.png" },
+      { name: "Baju Praktik", img: "/assets/img/kampus2.png" },
+      { name: "Almamater", img: "/assets/img/kampus1.png" },
+      { name: "Baju Praktik", img: "/assets/img/kampus2.png" },
+      { name: "Almamater", img: "/assets/img/kampus1.png" },
+      { name: "Baju Praktik", img: "/assets/img/kampus2.png" },
+      { name: "Almamater", img: "/assets/img/kampus1.png" },
+      { name: "Baju Praktik", img: "/assets/img/kampus2.png" },
+    ],
+  },
+  {
+    id: "medis",
+    title: "Seragam Medis",
+    items: [
+      { name: "Baju Jaga", img: "/assets/img/medis1.png" },
+      { name: "Jas Dokter", img: "/assets/img/medis2.png" },
+      { name: "Baju Jaga", img: "/assets/img/medis1.png" },
+      { name: "Jas Dokter", img: "/assets/img/medis2.png" },
+      { name: "Baju Jaga", img: "/assets/img/medis1.png" },
+      { name: "Jas Dokter", img: "/assets/img/medis2.png" },
+      { name: "Baju Jaga", img: "/assets/img/medis1.png" },
+      { name: "Jas Dokter", img: "/assets/img/medis2.png" },
+      { name: "Baju Jaga", img: "/assets/img/medis1.png" },
+      { name: "Jas Dokter", img: "/assets/img/medis2.png" },
+      { name: "Baju Jaga", img: "/assets/img/medis1.png" },
+      { name: "Jas Dokter", img: "/assets/img/medis2.png" },
+    ],
+  },
+  {
+    id: "hotel",
+    title: "Seragam Hotel",
+    items: [
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+      { name: "Seragam Resepsionis", img: "/assets/img/hotel1.png" },
+    ],
+  },
+  {
+    id: "restoran",
+    title: "Seragam Restoran",
+    items: [
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+      { name: "Seragam Pelayan", img: "/assets/img/restoran1.png" },
+    ],
+  },
+  {
+    id: "sekolah",
+    title: "Seragam Sekolah",
+    items: [
+      { name: "Seragam SD", img: "/assets/img/sekolah1.png" },
+      { name: "Seragam SMP", img: "/assets/img/sekolah2.png" },
+      { name: "Seragam SMA", img: "/assets/img/sekolah3.png" },
+      { name: "Seragam TK", img: "/assets/img/sekolah4.png" },
+      { name: "Seragam SMA", img: "/assets/img/sekolah3.png" },
+      { name: "Seragam TK", img: "/assets/img/sekolah4.png" },
+      { name: "Seragam SD", img: "/assets/img/sekolah1.png" },
+      { name: "Seragam SMP", img: "/assets/img/sekolah2.png" },
+      { name: "Seragam SMA", img: "/assets/img/sekolah3.png" },
+      { name: "Seragam TK", img: "/assets/img/sekolah4.png" },
+      { name: "Seragam SMA", img: "/assets/img/sekolah3.png" },
+      { name: "Seragam TK", img: "/assets/img/sekolah4.png" },
+    ],
+  },
+];
+---
+
+<section class="produk-section padding">
+  <div class="container text-center">
+    {isHomepage ? <h2 class="mb-4">Produk Kami</h2> : ""}
+
+    <!-- Tabs -->
+    <ul
+      class="nav nav-pills justify-content-center mb-4"
+      id="pills-tab"
+      role="tablist"
+    >
+      {
+        productTabs.map((tab, i) => (
+          <li class="nav-item mx-1 mb-2" role="presentation">
+            <button
+              class={`nav-link ${i === 0 ? "active" : ""}`}
+              id={`pills-${tab.id}-tab`}
+              data-bs-toggle="pill"
+              data-bs-target={`#pills-${tab.id}`}
+              type="button"
+              role="tab"
+              aria-controls={`pills-${tab.id}`}
+              aria-selected={i === 0 ? "true" : "false"}
+            >
+              {tab.title}
+            </button>
+          </li>
+        ))
+      }
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="pills-tabContent">
+      {
+        productTabs.map((tab, i) => {
+          const displayedItems = isHomepage ? tab.items.slice(0, 6) : tab.items;
+          return (
+            <div
+              class={`tab-pane fade ${i === 0 ? "show active" : ""}`}
+              id={`pills-${tab.id}`}
+              role="tabpanel"
+              aria-labelledby={`pills-${tab.id}-tab`}
+            >
+              <div class="row">
+                {displayedItems.map(item => (
+                  <div class="col-sm-4 col-md-3 col-lg-2 col-6 mb-4">
+                    <div class="portofolio-card h-100">
+                      <img
+                        src={item.img}
+                        class="portofolio-card-img-top"
+                        alt={item.name}
+                      />
+                      <div class="portofolio-card-body p-3 text-center">
+                        <h5 class="portofolio-card-title mb-0">{item.name}</h5>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      }
+      {
+        isHomepage && (
+          <div class="mt-3">
+            <a href="/portofolio" class="custom-btn">
+              Lihat Lebih Lengkap
+              <span />
+            </a>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

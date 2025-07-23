@@ -1,0 +1,337 @@
+<style>
+  .nav-tabs {
+    border-bottom: none;
+  }
+  .nav-tabs .nav-item .nav-link {
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #6c757d;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  .nav-tabs .nav-item .nav-link:hover {
+    border-bottom: 3px solid #f4a259;
+    color: #f4a259;
+  }
+  .nav-tabs .nav-item .nav-link.active {
+    border-bottom: 3px solid #f4a259;
+    color: #f4a259;
+    font-weight: 600;
+    background-color: transparent;
+  }
+  .card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  .card-header-custom {
+    background: linear-gradient(to right, #f4a259, #0056b3);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-bottom: none;
+  }
+  .card-title {
+    font-weight: 600;
+  }
+  .table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+  }
+  .table th[scope="row"] {
+    font-weight: 600;
+    color: #f4a259;
+  }
+  .guide .card-body h5 {
+    font-weight: 600;
+    color: #343a40;
+  }
+  .guide .card-body i {
+    color: #f4a259;
+    margin-right: 10px;
+  }
+</style>
+
+
+<section class="contact-section bg-grey padding">
+  <div class="container">
+    <!-- Header -->
+    <header class="mb-5 text-center">
+      <h2 class="header-title">Tabel Ukuran Pakaian Standar</h2>
+      <p class="lead text-muted">
+        Panduan referensi ukuran umum untuk pakaian Anda.
+      </p>
+    </header>
+
+    <!-- Tab Navigation -->
+    <ul
+      class="nav nav-tabs justify-content-center mb-4"
+      id="myTab"
+      role="tablist"
+    >
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          id="wanita-tab"
+          data-toggle="tab"
+          href="#wanita"
+          role="tab"
+          aria-controls="wanita"
+          aria-selected="true"><i class="fas fa-female mr-2"></i>Wanita</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="pria-tab"
+          data-toggle="tab"
+          href="#pria"
+          role="tab"
+          aria-controls="pria"
+          aria-selected="false"><i class="fas fa-male mr-2"></i>Pria</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="anak-tab"
+          data-toggle="tab"
+          href="#anak"
+          role="tab"
+          aria-controls="anak"
+          aria-selected="false"><i class="fas fa-child mr-2"></i>Anak-anak</a
+        >
+      </li>
+    </ul>
+
+    <!-- Main Content -->
+    <main class="tab-content" id="myTabContent">
+      <!-- Women's Size Chart -->
+      <div
+        class="tab-pane fade show active"
+        id="wanita"
+        role="tabpanel"
+        aria-labelledby="wanita-tab"
+      >
+        <div class="card">
+          <div class="card-header-custom">
+            <h4 class="card-title mb-0">
+              <i class="fas fa-tshirt mr-2"></i>Ukuran Baju Wanita
+            </h4>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table-hover table-striped mb-0 table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="pl-4">Ukuran</th>
+                    <th scope="col">Lingkar Dada (cm)</th>
+                    <th scope="col">Lingkar Pinggang (cm)</th>
+                    <th scope="col">Lingkar Panggul (cm)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    ><th scope="row" class="pl-4">XS</th><td>78 - 82</td><td
+                      >60 - 64</td
+                    ><td>86 - 90</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">S</th><td>83 - 87</td><td
+                      >65 - 69</td
+                    ><td>91 - 95</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">M</th><td>88 - 92</td><td
+                      >70 - 74</td
+                    ><td>96 - 100</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">L</th><td>93 - 98</td><td
+                      >75 - 80</td
+                    ><td>101 - 106</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">XL</th><td>99 - 104</td><td
+                      >81 - 86</td
+                    ><td>107 - 112</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">XXL</th><td>105 - 110</td><td
+                      >87 - 92</td
+                    ><td>113 - 118</td></tr
+                  >
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Men's Size Chart (Content is similar, structure updated) -->
+      <div
+        class="tab-pane fade"
+        id="pria"
+        role="tabpanel"
+        aria-labelledby="pria-tab"
+      >
+        <div class="card">
+          <div class="card-header-custom">
+            <h4 class="card-title mb-0">
+              <i class="fas fa-tshirt mr-2"></i>Ukuran Atasan Pria
+            </h4>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table-hover table-striped mb-0 table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="pl-4">Ukuran</th>
+                    <th scope="col">Lingkar Dada (cm)</th>
+                    <th scope="col">Panjang Baju (cm)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    ><th scope="row" class="pl-4">S</th><td>96 - 100</td><td
+                      >68 - 70</td
+                    ></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">M</th><td>101 - 106</td><td
+                      >70 - 72</td
+                    ></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">L</th><td>107 - 112</td><td
+                      >72 - 74</td
+                    ></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">XL</th><td>113 - 118</td><td
+                      >74 - 76</td
+                    ></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">XXL</th><td>119 - 124</td><td
+                      >76 - 78</td
+                    ></tr
+                  >
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Children's Size Chart (Content is similar, structure updated) -->
+      <div
+        class="tab-pane fade"
+        id="anak"
+        role="tabpanel"
+        aria-labelledby="anak-tab"
+      >
+        <div class="card">
+          <div class="card-header-custom">
+            <h4 class="card-title mb-0">
+              <i class="fas fa-tshirt mr-2"></i>Ukuran Baju Anak
+            </h4>
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table-hover table-striped mb-0 table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="pl-4">Ukuran (Usia)</th>
+                    <th scope="col">Tinggi Badan (cm)</th>
+                    <th scope="col">Berat Badan (kg)</th>
+                    <th scope="col">Lingkar Dada (cm)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    ><th scope="row" class="pl-4">Newborn</th><td>hingga 56</td
+                    ><td>hingga 4.5</td><td>~ 40</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">3-6 Bulan</th><td>57 - 68</td
+                    ><td>4.5 - 7.5</td><td>~ 45</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">6-12 Bulan</th><td>69 - 76</td
+                    ><td>7.5 - 10</td><td>~ 48</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">1 Tahun</th><td>77 - 82</td
+                    ><td>10 - 12</td><td>~ 51</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">2 Tahun</th><td>83 - 88</td
+                    ><td>12 - 14</td><td>~ 53</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">3 Tahun</th><td>89 - 96</td
+                    ><td>14 - 16</td><td>~ 55</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">4 Tahun</th><td>97 - 104</td
+                    ><td>16 - 18</td><td>~ 57</td></tr
+                  >
+                  <tr
+                    ><th scope="row" class="pl-4">5 Tahun</th><td>105 - 112</td
+                    ><td>18 - 20</td><td>~ 59</td></tr
+                  >
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How to Measure Guide -->
+      <div class="card guide mt-5">
+        <div class="card-body p-4">
+          <h3 class="card-title mb-4">
+            <i class="fas fa-ruler-combined"></i> Cara Mengukur Badan
+          </h3>
+          <div class="mt-3">
+            <h5>
+              <i class="fas fa-arrows-alt-h"></i>1. Lingkar Dada (Bust/Chest)
+            </h5>
+            <p class="pl-4 text-muted">
+              Lilitkan pita ukur mengelilingi bagian dada yang paling
+              penuh/lebar, tepat di bawah ketiak. Pastikan pita ukur dalam
+              posisi lurus dan tidak terlalu ketat.
+            </p>
+            <hr />
+            <h5>
+              <i class="fas fa-arrows-alt-h"></i>2. Lingkar Pinggang (Waist)
+            </h5>
+            <p class="pl-4 text-muted">
+              Lilitkan pita ukur pada bagian pinggang yang paling ramping,
+              biasanya sedikit di atas pusar. Jangan menahan napas agar
+              mendapatkan ukuran yang akurat.
+            </p>
+            <hr />
+            <h5>
+              <i class="fas fa-arrows-alt-h"></i>3. Lingkar Panggul (Hips)
+            </h5>
+            <p class="pl-4 text-muted">
+              Berdiri dengan kaki rapat, lilitkan pita ukur pada bagian panggul
+              dan bokong yang paling lebar.
+            </p>
+          </div>
+          <p class="font-italic mt-4 text-muted">
+            *Catatan: Tabel ini adalah referensi umum. Ukuran dapat bervariasi
+            tergantung pada merek dan model pakaian.
+          </p>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>

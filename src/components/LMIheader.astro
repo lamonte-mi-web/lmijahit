@@ -4,7 +4,7 @@ import HeaderLink from "./LMIheaderLink.astro";
 ---
 
 <header class="header header-one">
-  <div class="top-header-one top-bar">
+  <!-- <div class="top-header-one top-bar">
     <div class="container">
       <div class="top-bar-inner">
         <div class="top-left">
@@ -41,7 +41,11 @@ import HeaderLink from "./LMIheaderLink.astro";
         </div>
       </div>
     </div>
-  </div><div class="primary-header-one primary-header">
+  </div> -->
+  <div
+    id="primary-header"
+    class="primary-header-one primary-header bg-white/60 backdrop-blur-md transition-all duration-300"
+  >
     <div class="container">
       <div class="primary-header-inner">
         <div class="header-logo">
@@ -52,7 +56,7 @@ import HeaderLink from "./LMIheaderLink.astro";
           <ul class="dl-menu">
             <li><HeaderLink href="/">Home</HeaderLink></li>
             <li>
-              <a href="#">Portofolio</a>
+              <a href="/portofolio">Portofolio</a>
               <ul>
                 <li>
                   <HeaderLink href="/portofolio#pills-kerja"
@@ -87,9 +91,9 @@ import HeaderLink from "./LMIheaderLink.astro";
               </ul>
             </li>
             <li><HeaderLink href="/blogs">Blog</HeaderLink></li>
-            <li><HeaderLink href="/about">About</HeaderLink></li>
-            <li><HeaderLink href="/klien">Klien</HeaderLink></li>
-            <li>
+            <!-- <li><HeaderLink href="/about">About</HeaderLink></li>
+            <li><HeaderLink href="/klien">Klien</HeaderLink></li> -->
+            <!-- <li>
               <a href="#">Info</a>
               <ul>
                 <li>
@@ -105,7 +109,7 @@ import HeaderLink from "./LMIheaderLink.astro";
                   <HeaderLink href="/faq">FAQ</HeaderLink>
                 </li>
               </ul>
-            </li>
+            </li> -->
             <li><HeaderLink href="/kontak">Kontak</HeaderLink></li>
           </ul>
         </div><div class="header-right">
@@ -128,3 +132,22 @@ import HeaderLink from "./LMIheaderLink.astro";
     </div>
   </div>
 </header>
+
+<script>
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", () => {
+      const header = document.getElementById("primary-header");
+      if (!header) return;
+
+      if (window.scrollY < 50) {
+        // At the top: blur and semi-transparent
+        header.classList.add("bg-white/60", "backdrop-blur-md");
+        header.classList.remove("bg-white", "shadow-md");
+      } else {
+        // Scrolled: solid background and slight shadow
+        header.classList.remove("bg-white/60", "backdrop-blur-md");
+        header.classList.add("bg-white", "shadow-md");
+      }
+    });
+  }
+</script>
