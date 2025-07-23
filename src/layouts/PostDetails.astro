@@ -150,17 +150,16 @@ const nextPost =
             <div class="widget-content">
               <h4>Tag Clouds</h4>
               <ul class="tags">
-                <li><a href="#">Architecture</a></li>
-                <li><a href="#">Interior Design</a></li>
-                <li><a href="#">Designing</a></li>
-                <li><a href="#">Construction</a></li>
-                <li><a href="#">Buildings</a></li>
-                <li><a href="#">Industrial</a></li>
-                <li><a href="#">Factory</a></li>
-                <li><a href="#">Material</a></li>
+                {
+                  tags.map(tag => (
+                    <li>
+                      <a href={`/tags/${slugifyStr(tag)}/`}>{tag}</a>
+                    </li>
+                  ))
+                }
               </ul>
             </div><!-- /.widget-content -->
-             <ShareLinks />
+            <ShareLinks />
           </div>
         </div>
       </div>

@@ -3854,3 +3854,12 @@ blockquote span {
         margin-left: 10px;
     }
 }
+
+h1 > a[aria-hidden="true"],
+h2 > a[aria-hidden="true"],
+h3 > a[aria-hidden="true"],
+h4 > a[aria-hidden="true"],
+h5 > a[aria-hidden="true"],
+h6 > a[aria-hidden="true"] {
+  display: none;
+}
