@@ -11,8 +11,7 @@ tags:
   - Inventaris
   - Distributor
   - Manajemen Bisnis
-description: 
-  Inventaris adalah jantung bisnis distributor. Artikel ini membahas strategi manajemen inventaris yang efektif dan kesalahan umum yang harus dihindari.
+description: Inventaris adalah jantung bisnis distributor. Artikel ini membahas strategi manajemen inventaris yang efektif dan kesalahan umum yang harus dihindari.
 
 ---
 
