@@ -2,7 +2,7 @@
 author: Dev Marcel2405
 pubDatetime: 2025-07-23T10:00:00Z
 modDatetime: 2025-07-23T10:00:00Z
-title: Mengelola Inventaris dalam Bisnis Distributor: Menghindari Kesalahan Umum
+title: 'Mengelola Inventaris dalam Bisnis Distributor: Menghindari Kesalahan Umum'
 slug: mengelola-inventaris-bisnis-distributor
 ogImage: '@/assets/img/kerja2.png'
 featured: false
