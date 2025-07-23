@@ -5,7 +5,7 @@ pubDatetime: 2025-07-22T10:00:00Z
 modDatetime: 2025-07-22T10:00:00Z
 title: Panduan Lengkap Menggunakan Shopify untuk Bisnis Distributor Anda
 slug: panduan-menggunakan-shopify-untuk-bisnis-distributor
-ogImage: /assets/img/1.png
+ogImage: '@/assets/img/1.png'
 featured: true
 draft: false
 tags:
