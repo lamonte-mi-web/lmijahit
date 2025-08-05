@@ -2621,7 +2621,7 @@ button {
 }
 
 .team-thumb:before {
-    background: linear-gradient(to bottom, rgba(36, 127, 251, 0) 0%, #FF9000 100%);
+    background: linear-gradient(to bottom, rgba(36, 127, 251, 0) 0%, #247ffb 100%);
     position: absolute;
     content: "";
     width: 100%;
@@ -2687,7 +2687,7 @@ button {
 .team-content h3 span {
     display: block;
     font-size: 14px;
-    color: #FF9000;
+    color: #247ffb;
 }
 
 /*==============================================
@@ -2869,39 +2869,27 @@ button {
     PAGE HEADER SECTION
 ==============================================*/
 .page-header {
-    background: linear-gradient(135deg,
-            #f4a259 0%,
-            /* soft muted orange */
-            rgb(241, 241, 241) 100%
-            /* very light gray */
-        );
+    background-image: url(../img/blue-bg.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-
     width: 100%;
     height: 400px;
-
     display: flex;
     align-items: center;
     position: relative;
     z-index: 1;
 }
 
-
 .page-content {}
 
 .page-content h2 {
-    /* color: #fff; */
-    color: #13287c;
-
+    color: #fff;
     font-size: 42px;
 }
 
 .page-content p {
-    /* color: #ddd; */
-    color: #13287c;
-
+    color: #ddd;
     margin: 0;
     font-weight: 500;
 }
@@ -3867,51 +3855,11 @@ blockquote span {
     }
 }
 
-h1>a>span[aria-hidden="true"],
-h2>a>span[aria-hidden="true"],
-h3>a>span[aria-hidden="true"],
-h4>a>span[aria-hidden="true"],
-h5>a>span[aria-hidden="true"],
-h6>a>span[aria-hidden="true"] {
-    display: none;
+h1 > a >span[aria-hidden="true"],
+h2 > a >span[aria-hidden="true"],
+h3 > a >span[aria-hidden="true"],
+h4 > a >span[aria-hidden="true"],
+h5 > a >span[aria-hidden="true"],
+h6 > a >span[aria-hidden="true"] {
+  display: none;
 }
-
-/* portofolio section */
-
-/* Kustomisasi tampilan nav-pills */
-  .nav-pills .nav-link {
-    border-radius: 50rem; /* Membuat tombol lebih bulat */
-    font-weight: 500;
-    transition: all 0.3s ease;
-    color: black;
-  }
-
-  .nav-pills .nav-link.active {
-    background-color: #fff261;
-    color: #ff9000;
-  }
-
-  /* Kustomisasi kartu produk */
-  .portofolio-card {
-    border: none;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-  .portofolio-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-  .portofolio-card-img-top {
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-  }
-  .portofolio-card-title {
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  /* Animasi fade yang lebih halus untuk tab */
-  .tab-pane.fade {
-    transition: opacity 0.4s ease-in-out;
-  }

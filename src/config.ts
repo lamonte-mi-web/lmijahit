@@ -1,9 +1,9 @@
 export const SITE = {
   website: "https://jahit.lmi.co.id", // replace this with your deployed domain
-  author: "Sat Naing",
-  profile: "https://satnaing.dev/",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
+  author: "Marcel - NeoByte",
+  profile: "https://github.com/Cyrochrome",
+  desc: "Jahit Baju Custom di Lamonte Aja",
+  title: "LMI Jahit",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,

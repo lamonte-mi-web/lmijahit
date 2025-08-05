@@ -13,6 +13,7 @@ import CTASection from "@/components/sections/CTASection.astro";
 import ClientSection from "@/components/sections/ClientSection.astro";
 import SizeSection from "@/components/sections/SizeSection.astro";
 import FAQSection from "@/components/sections/FAQSection.astro";
+import HeroSection from "@/components/sections/HeroSection.astro";
 
 // Impor semua komponen bagian yang akan Anda gunakan di halaman ini
 //import HeroSlider from '../components/HeroSlider.astro';
@@ -27,155 +28,7 @@ import FAQSection from "@/components/sections/FAQSection.astro";
 		<div class="spinner"></div>
 	</div>
 
-	<div id="main-slider" class="dl-slider">
-		<div class="single-slide">
-			<div
-				class="bg-img kenburns-top-right"
-				style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/img/slider-1.jpg?v=1);"
-			>
-			</div>
-			<div class="slider-content-wrap d-flex align-items-center text-left">
-				<div class="container">
-					<div class="slider-content">
-						<div class="dl-caption big">
-							<div class="inner-layer">
-								<div
-									data-animation="fade-in-left"
-									data-delay="1s"
-									style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"
-								>
-									Baju Custom Eksklusif, <br />Pas di Hati dan Ukuran
-								</div>
-							</div>
-						</div>
-						<div class="dl-caption small">
-							<div class="inner-layer">
-								<div
-									data-animation="fade-in-left"
-									data-delay="2s"
-									style="color:white;"
-								>
-									Rasakan pengalaman menjahit baju sesuai selera, gaya, dan
-									kebutuhanmu—tanpa ribet!
-								</div>
-							</div>
-						</div>
-						<div class="dl-btn-group custom-btn-wrapper">
-							<div class="inner-layer">
-								<a
-									href="#"
-									class="custom-btn"
-									data-animation="fade-in-left"
-									data-delay="3.5s"
-								>
-									Lihat Katalog<span></span><i class="ti-angle-right ml-2"
-									></i></a
-								>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="single-slide">
-			<div
-				class="bg-img kenburns-top-right"
-				style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/img/slider-2.jpg?v=1);"
-			>
-			</div>
-			<div class="slider-content-wrap d-flex align-items-center text-left">
-				<div class="container">
-					<div class="slider-content">
-						<div class="dl-caption big">
-							<div class="inner-layer">
-								<div
-									data-animation="fade-in-left"
-									data-delay="1s"
-									style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"
-								>
-									Dari Seragam<br /> Hingga Gaun Pesta
-								</div>
-							</div>
-						</div>
-						<div class="dl-caption small">
-							<div class="inner-layer">
-								<div
-									data-animation="fade-in-left"
-									data-delay="2s"
-									style="color:white;"
-								>
-									Terima pesanan seragam kantor, baju nikah, kebaya, hingga jas
-									formal. Semua bisa disesuaikan!
-								</div>
-							</div>
-						</div>
-						<div class="dl-btn-group custom-btn-wrapper">
-							<div class="inner-layer">
-								<a
-									href="https://bit.ly/LMI-konsultasi"
-									target="_blank"
-									class="custom-btn"
-									data-animation="fade-in-left"
-									data-delay="3.5s"
-									>Konsultasi Gratis<span></span><i class="ti-angle-right ml-2"
-									></i></a
-								>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- slider end -->
-		<div class="single-slide">
-			<div
-				class="bg-img kenburns-top-right"
-				style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/img/slider-3.jpg?v=1);"
-			>
-			</div>
-			<div class="slider-content-wrap d-flex align-items-center text-left">
-				<div class="container">
-					<div class="slider-content">
-						<div class="dl-caption big">
-							<div class="inner-layer">
-								<div
-									data-animation="fade-in-left"
-									data-delay="1s"
-									style="text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;"
-								>
-									1000+ Pelanggan<br /> Puas di Seluruh Indonesia
-								</div>
-							</div>
-						</div>
-						<div class="dl-caption small">
-							<div class="inner-layer">
-								<div
-									data-animation="fade-in-left"
-									data-delay="2s"
-									style="color:white;"
-								>
-									Bergabunglah dengan ratusan pelanggan yang sudah merasakan
-									layanan jahit terbaik dari kami.
-								</div>
-							</div>
-						</div>
-						<div class="dl-btn-group custom-btn-wrapper">
-							<div class="inner-layer">
-								<a
-									href="#"
-									class="custom-btn"
-									data-animation="fade-in-left"
-									data-delay="3.5s"
-									>Baca Testimoni<span></span><i class="ti-angle-right ml-2"
-									></i></a
-								>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<HeroSection />
 	<!-- why us -->
 	<AboutSection />
 
@@ -201,16 +54,15 @@ import FAQSection from "@/components/sections/FAQSection.astro";
 
 	<!-- Size Section -->
 	<SizeSection />
-	
+
 	<!-- Size Section -->
 	<FAQSection />
-	
+
 	<!-- Book Section -->
 	<BookSection />
 
 	<!-- Cta section -->
 	<CTASection />
-
 
 	<script>
 		const form = document.getElementById(
