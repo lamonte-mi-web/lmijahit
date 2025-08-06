@@ -755,7 +755,7 @@ button {
     position: relative;
 }
 
-.header-menu-wrap ul li>a {
+/* .header-menu-wrap ul li>a {
     display: block;
     font-family: "Heebo", sans-serif;
     font-size: 16px;
@@ -767,11 +767,11 @@ button {
     line-height: 80px;
     text-decoration: none;
     -webkit-font-smoothing: antialiased;
-}
-
+} */
+/* 
 .header-menu-wrap ul li:hover>a {
     color: #FFF261;
-}
+} */
 
 .header-menu-wrap li ul {
     background-color: #fff;

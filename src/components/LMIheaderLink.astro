@@ -1,7 +1,9 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-
-type Props = HTMLAttributes<"a">;
+type Props = {
+	href: string;
+	class?: string;
+	[key: string]: any;
+};
 
 const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
@@ -16,7 +18,23 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
 	a {
 		display: inline-block;
 		text-decoration: none;
+		font-family: "Heebo", sans-serif;
+		font-size: 16px;
+		letter-spacing: 0;
+		font-weight: 600;
+		color: #ff9000;
+		padding: 0 15px;
+		height: 80px;
+		line-height: 80px;
+		text-decoration: none;
+		-webkit-font-smoothing: antialiased;
 	}
+	a:hover {
+		font-weight: bolder;
+		text-decoration: underline;
+		color: #13287c;
+	}
+
 	a.active {
 		font-weight: bolder;
 		text-decoration: underline;
