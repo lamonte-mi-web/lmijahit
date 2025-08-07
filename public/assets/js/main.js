@@ -135,25 +135,22 @@
         });
 
         /* Scroll to Top */
-        var scrollTop = $("#scroll-top");
-        $(window).on('scroll', function () {
-            var topPos = $(this).scrollTop();
-            if (topPos > 100) {
-                $('#scrollup').removeClass('hide');
-                $('#scrollup').addClass('show');
+        const $scrollup = $('#scrollup');
+        const $scrollTopBtn = $('#scroll-top');
 
+        // Toggle scroll-to-top visibility
+        $(window).on('scroll', function () {
+            if ($(this).scrollTop() > 100) {
+                $scrollup.removeClass('hide').addClass('show');
             } else {
-                $('#scrollup').removeClass('show');
-                $('#scrollup').addClass('hide');
+                $scrollup.removeClass('show').addClass('hide');
             }
         });
 
-        /* Click event to scroll to top */
-        $(scrollTop).on("click", function () {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 800);
-            return false;
+        // Scroll to top on click
+        $scrollTopBtn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 800);
         });
 
         /* ======= Main Slider ======= */

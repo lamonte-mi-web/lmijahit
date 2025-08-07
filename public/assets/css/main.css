@@ -74,7 +74,7 @@ h5,
 h6 {
     font-family: 'Heebo', sans-serif;
     -webkit-font-smoothing: antialiased;
-    color: #13287c;
+    color: #FF9000;
 }
 
 h1 {
@@ -82,13 +82,13 @@ h1 {
     font-weight: 700;
     line-height: 68px;
     margin: 0 0 10px;
-    color: #13287c;
+    color: #FF9000;
 }
 
 h2 {
     font-size: 32px;
     line-height: 38px;
-    color: #13287c;
+    color: #FF9000;
     margin: 0 0 10px;
     font-weight: 600;
     letter-spacing: -1px;
@@ -99,7 +99,7 @@ h4 {
     margin: 0 0 10px;
     font-weight: 600;
     line-height: 1.5;
-    color: #13287c;
+    color: #FF9000;
     letter-spacing: -0.5px;
 }
 
@@ -478,13 +478,14 @@ button {
     line-height: 62px;
     display: block;
     letter-spacing: -1px;
+    color: #FF9000;
 }
 
 .section-heading h4 {
     display: inline-block;
     text-transform: uppercase;
     font-size: 12px;
-    color: #13287c;
+    color: #FF9000;
     font-weight: 600;
     letter-spacing: 0;
     font-family: "Heebo", sans-serif;
@@ -494,7 +495,7 @@ button {
 }
 
 .section-heading .learn-more {
-    color: #13287c;
+    color: #FF9000;
     font-weight: 500;
     text-decoration: underline;
 }
@@ -583,18 +584,28 @@ button {
 
 /* ======= Scroll To Top ======= */
 #scrollup {
-    width: 45px;
-    height: 45px;
     position: fixed;
     bottom: 30px;
     right: 30px;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
     z-index: 999;
+    /* REMOVE THESE */
+    /* width: 45px;
+     height: 45px;
+     overflow: hidden; */
 }
 
 .scroll-to-top {
-    width: 100%;
-    height: 100%;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+
+.scroll-to-top {
     text-align: center;
     background-color: #FF9000;
     font-size: 15px;
@@ -603,7 +614,7 @@ button {
     color: #ffffff;
     border-radius: 50%;
     text-decoration: none;
-    transform: translateY(150%);
+    transform: translateY(120%);
     transition: all 0.3s ease-in-out;
 }
 
@@ -614,6 +625,9 @@ button {
 #scrollup.show .scroll-to-top {
     transform: translateY(0);
     transition: all 0.3s ease-in-out;
+}
+#scrollup.hide .scroll-to-top {
+    visibility: hidden;
 }
 
 .scroll-to-top:hover {
@@ -1747,52 +1761,6 @@ button {
 /*==============================================
     FEATURES SECTION
 ==============================================*/
-.features-section {
-    padding-left: 50px;
-    position: relative;
-}
-
-.features-bg {
-    background-image: url(../img/features-bg.jpg);
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: cover;
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 45%;
-}
-
-.feature-item {
-    display: flex;
-    align-items: flex-start;
-}
-
-.feature-icon {
-    margin-right: 15px;
-    margin-top: 5px;
-}
-
-.feature-content {}
-
-.feature-content h3 {
-    margin-bottom: 0;
-}
-
-@media (max-width: 992px) {
-    .features-section {
-        padding: 0;
-    }
-
-    .features-bg {
-        display: none;
-    }
-
-    .features-section .col-lg-6.padding {
-        padding: 0 15px;
-    }
-}
 
 /*==============================================
     BOOK SECTION
@@ -3566,4 +3534,11 @@ h6>a>span[aria-hidden="true"] {
 .custom-btn.reverse span {
     background: #FFF261;
     /* or switch to lighter/darker for contrast */
+}
+
+.show {
+    visibility: visible;
+}
+.hide {
+    visibility: none;
 }

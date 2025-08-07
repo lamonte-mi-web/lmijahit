@@ -1,5 +1,6 @@
 ---
 // File: src/components/Header.astro
+import CTAButton from "./CTAButton.astro";
 import HeaderLink from "./LMIheaderLink.astro";
 ---
 
@@ -17,7 +18,8 @@ import HeaderLink from "./LMIheaderLink.astro";
         </div><div class="header-menu-wrap">
           <ul class="dl-menu">
             <li>
-              <HeaderLink href="/">Home</HeaderLink></li>
+              <HeaderLink href="/">Home</HeaderLink>
+            </li>
             <li>
               <HeaderLink href="/portofolio">Portofolio</HeaderLink>
               <ul>
@@ -76,13 +78,7 @@ import HeaderLink from "./LMIheaderLink.astro";
             <li><HeaderLink href="/kontak">Kontak</HeaderLink></li>
           </ul>
         </div><div class="header-right">
-          <a
-            class="custom-btn"
-            href="https://jahit.lmi.co.id/LMIProposal.pdf"
-            target="_blank"
-          >
-            Lihat Proposal<span></span>
-          </a>
+          <CTAButton/>
           <div class="mobile-menu-icon">
             <div class="burger-menu">
               <div class="line-menu line-half first-line"></div>

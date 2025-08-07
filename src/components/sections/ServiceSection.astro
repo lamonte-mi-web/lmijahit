@@ -4,7 +4,6 @@
 			class="section-heading wow fadeInUp mb-40 text-center"
 			data-wow-delay="200ms"
 		>
-			<img src="assets/img/clean.png" alt="img" />
 			<h2>Pelayanan Kami</h2>
 			<p>
 				Kami berkomitmen memberikan pengalaman terbaik — agar setiap pelanggan
@@ -17,9 +16,6 @@
 				data-wow-delay="300ms"
 			>
 				<div class="service-card">
-					<div class="service-thumb">
-						<img src="assets/img/service-1.jpg" alt="img" />
-					</div>
 					<div class="service-content">
 						<div class="service-icon">
 							<svg
@@ -129,9 +125,6 @@
 				data-wow-delay="400ms"
 			>
 				<div class="service-card">
-					<div class="service-thumb">
-						<img src="assets/img/service-2.jpg" alt="img" />
-					</div>
 					<div class="service-content">
 						<div class="service-icon">
 							<svg
@@ -261,9 +254,6 @@
 				data-wow-delay="500ms"
 			>
 				<div class="service-card">
-					<div class="service-thumb">
-						<img src="assets/img/service-3.jpg" alt="img" />
-					</div>
 					<div class="service-content">
 						<div class="service-icon">
 							<svg
@@ -390,6 +380,39 @@
 	}
 
 	.service-card {
+		background: #fff;
+		padding: 30px;
+		border-radius: 12px;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+		height: 100%;
+	}
+
+	.service-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	}
+
+	.service-card h3 {
+		font-size: 20px;
+		margin-bottom: 15px;
+		font-weight: 600;
+	}
+
+	.service-card a {
+		text-decoration: none;
+		color: #222;
+	}
+
+	.service-card p {
+		font-size: 15px;
+		line-height: 1.6;
+		color: #555;
+	}
+
+	.service-card {
 		border-radius: 3px;
 		-webkit-box-shadow:
 			0px 50px 100px 0px rgba(64, 1, 4, 0.1),
@@ -412,10 +435,10 @@
 	.service-content {
 		background-color: #fff;
 		text-align: center;
-		padding: 0 40px 40px;
-		margin-top: -50px;
+		/* padding: 0 40px 40px; */
+		/* margin-top: -50px; */
 		position: relative;
-		min-height: 395px;
+		/* min-height: 395px; */
 	}
 
 	.service-icon {
@@ -438,11 +461,11 @@
 	}
 
 	.service-content h3 a {
-		color: #13287c;
+		color: #FF9000;
 	}
 
 	.service-content .read-more {
-		background-color: #247ffb;
+		background-color: #FF9000;
 		width: 50px;
 		height: 50px;
 		line-height: 50px;
@@ -477,6 +500,11 @@
 			height: 40px;
 			line-height: 40px;
 			bottom: -18px;
+		}
+	}
+	@media (max-width: 768px) {
+		.service-card {
+			padding: 20px;
 		}
 	}
 </style>
