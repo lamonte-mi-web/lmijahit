@@ -7,6 +7,13 @@
 (function ($) {
     "use strict";
 
+    $(window).on('scroll', function () {
+        const scrollTop = $(this).scrollTop();
+        const docHeight = $(document).height() - $(window).height();
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        $('#scroll-progress').css('width', scrollPercent + '%');
+    });
+
     /* ======= Preloader ======= */
     $(window).on('load', function () {
         $('body').addClass('loaded');
@@ -120,7 +127,7 @@
                 left: relX
             });
         });
-        
+
 
         /* Smooth Scrolling */
         $('a[href*="#"]').smoothscroll({
@@ -314,41 +321,18 @@
 
         /* ======= Testimonials ======= */
         $('.testimonials-carousel').slick({
-            dots: true,
-            infinite: false,
-            speed: 300,
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            prevArrow: '<i class="ti-arrow-left left"></i>',
-            nextArrow: '<i class="ti-arrow-right right"></i>',
+            dots: false,
             infinite: true,
-            dots: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            prevArrow: false,
+            nextArrow: false,
             pauseOnFocus: false,
             pauseOnHover: true,
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 767,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 580,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-            ]
         });
+
 
         /* ======= Project Details ======= */
         $('.project-details-carousel').slick({

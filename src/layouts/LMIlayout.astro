@@ -3,6 +3,10 @@
 import Header from '../components/LMIheader.astro';
 import Footer from '../components/LMIfooter.astro';
 
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 interface Props {
   title: string;
   description?: string; // Tambahkan tanda tanya (?) untuk membuatnya opsional
@@ -26,6 +30,7 @@ console.log("URL lengkap:", currentURL);
     <meta name="author" content="ThemeEaster">
 
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="/assets/css/themify-icons.css">
     <link rel="stylesheet" href="/assets/css/elegant-line-icons.css">
@@ -39,6 +44,7 @@ console.log("URL lengkap:", currentURL);
     <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body class="header-1">
+    <div id="scroll-progress"></div>
     <div class="site-preloader-wrap">
         <div class="spinner"></div>
     </div>
@@ -56,6 +62,7 @@ console.log("URL lengkap:", currentURL);
     </div>
 
     <script is:inline src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script is:inline src="/assets/js/vendor/popper.min.js"></script>
     <script is:inline src="/assets/js/vendor/bootstrap.min.js"></script>
     <script is:inline src="/assets/js/vendor/waypoints.min.js"></script>
@@ -72,5 +79,6 @@ console.log("URL lengkap:", currentURL);
     <script is:inline src="/assets/js/contact.js"></script>
     <script is:inline src="/assets/js/appointment.js"></script>
     <script is:inline src="/assets/js/main.js"></script>
+    
 </body>
 </html>

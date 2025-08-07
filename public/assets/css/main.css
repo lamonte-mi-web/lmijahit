@@ -45,7 +45,7 @@
     =====================================================
     @ThemeEaster
     ===================================================== */
-
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap');
 
 /*  ======= Common Styles ======= */
@@ -596,11 +596,11 @@ button {
     width: 100%;
     height: 100%;
     text-align: center;
-    background-color: #FFF261;
+    background-color: #FF9000;
     font-size: 15px;
     padding: 0;
     line-height: 40px;
-    color: #FF9000;
+    color: #ffffff;
     border-radius: 50%;
     text-decoration: none;
     transform: translateY(150%);
@@ -637,7 +637,7 @@ button {
 }
 
 .header-logo img {
-    max-width: 90%;
+    max-width: 80%;
 }
 
 /* Headroom css */
@@ -824,10 +824,10 @@ button {
     -webkit-font-smoothing: antialiased;
 }
 
-.header-menu-wrap li li:hover>a {
+/* .header-menu-wrap li li:hover>a {
     color: #FF9000;
     background-color: #FFF261;
-}
+} */
 
 .header-menu-wrap li ul li ul {
     width: 250px;
@@ -1000,73 +1000,6 @@ button {
 
 .header-right .mobile-menu-icon {
     margin-left: 20px;
-}
-
-.custom-btn {
-    display: inline-block;
-    background: #FFF261;
-    color: #FF9000;
-    font-family: 'Heebo', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    height: 45px;
-    line-height: 45px;
-    padding: 0 35px;
-    letter-spacing: 0;
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-    margin-left: 20px;
-    transition: all ease 700ms;
-    -moz-transition: all ease 700ms;
-    -webkit-transition: all ease 700ms;
-    -ms-transition: all ease 700ms;
-    -o-transition: all ease 700ms;
-    z-index: 1;
-}
-
-.custom-btn:hover {
-    color: #fff;
-}
-
-.custom-btn span {
-    background: #13287c none repeat scroll 0 0;
-    border-radius: 50%;
-    display: block;
-    height: 0;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transition: width 0.6s ease 0s, height 0.6s ease 0s;
-    -moz-transition: width 0.6s ease 0s, height 0.6s ease 0s;
-    -webkit-transition: width 0.6s ease 0s, height 0.6s ease 0s;
-    -ms-transition: width 0.6s ease 0s, height 0.6s ease 0s;
-    -o-transition: width 0.6s ease 0s, height 0.6s ease 0s;
-    width: 0;
-    z-index: -1;
-}
-
-.custom-btn:hover span {
-    height: 562.5px;
-    width: 562.5px;
-}
-
-/* Reverse version of custom button */
-.custom-btn.reverse {
-    background: #13287c;
-    color: #fff;
-}
-
-.custom-btn.reverse:hover {
-    color: #FF9000;
-}
-
-.custom-btn.reverse span {
-    background: #FFF261;
-    /* or switch to lighter/darker for contrast */
 }
 
 
@@ -1722,259 +1655,12 @@ button {
 /*==============================================
     ABOUT SECTION
 ==============================================*/
-.about-section {
-    position: relative;
-}
 
-.about-content p {
-    margin-bottom: 20px;
-}
-
-.about-list {
-    margin-bottom: 20px;
-}
-
-.about-list li {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
-
-.about-list li:last-child {
-    margin-bottom: 0;
-}
-
-.about-list li i {
-    color: #247ffb;
-    width: 40px;
-    height: 40px;
-    line-height: 36px;
-    text-align: center;
-    border-radius: 50%;
-    border: 2px solid #247ffb;
-    display: inline-block;
-    margin-right: 20px;
-    margin-top: 5px;
-}
-
-.about-list li h3 {
-    margin-bottom: 0;
-}
-
-.about-btn {}
-
-.about-btn li {
-    display: inline-flex;
-    align-items: center;
-}
-
-.about-list-content {
-    flex: 1;
-}
-
-.about-btn li a {
-    margin-right: 30px;
-}
-
-.about-btn li .whatsapp i {
-    color: #25d366;
-    font-size: 40px;
-    margin-right: 10px;
-}
-
-.about-btn li .whatsapp {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    font-weight: 600;
-    color: #13287c;
-}
-
-.about-bg-wrap {
-    position: relative;
-    z-index: 1;
-}
-
-.about-bg-wrap .exp-box {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 2px;
-    text-align: center;
-    display: inline-block;
-    position: absolute;
-    left: 140px;
-    top: 40px;
-    z-index: 1;
-    -webkit-box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
-    box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
-}
-
-.about-bg-wrap .exp-box h3 {
-    color: #FFF261;
-    display: block;
-    font-size: 62px;
-    line-height: 42px;
-    margin: 0;
-}
-
-.about-bg-wrap .exp-box h3 span {
-    color: #13287c;
-    display: block;
-    font-size: 15px;
-    font-family: "Heebo", sans-serif;
-    font-weight: 600;
-    line-height: 20px;
-    margin-top: 10px;
-}
-
-.about-bg-wrap .front {
-    transform: translateY(120px);
-}
-
-.about-bg-wrap .img-2 {
-    width: 370px;
-    height: auto;
-    position: absolute;
-    left: 240px;
-    top: 0;
-    border-radius: 2px;
-    z-index: -1;
-}
-
-/*===== About Section 2 =====*/
-.about-bg-holder {
-    position: relative;
-    height: 100%;
-}
-
-.about-bg-holder img {
-    border-radius: 2px;
-}
-
-.bg-right {
-    position: absolute;
-    width: auto;
-    height: 400px;
-    right: 20px;
-    top: 0;
-}
-
-.bg-bottom {
-    width: 400px;
-    height: auto;
-    position: absolute;
-    bottom: -80px;
-    left: 0;
-}
-
-.bg-center {
-    position: absolute;
-    bottom: 60px;
-    left: 50px;
-    z-index: 1;
-}
-
-.about-list-2 {
-    margin-bottom: 20px;
-}
-
-.about-list-2 li {
-    margin-bottom: 10px;
-}
-
-.about-list-2 li i {
-    font-size: 15px;
-    color: #247ffb;
-    margin-right: 10px;
-}
 
 /*==============================================
     SERVICE SECTION
 ==============================================*/
-.service-section {}
 
-.service-card {
-    border-radius: 3px;
-    -webkit-box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
-    box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
-}
-
-.service-thumb {
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.service-thumb img {
-    z-index: -1;
-}
-
-.service-content {
-    background-color: #fff;
-    text-align: center;
-    padding: 0 40px 40px;
-    margin-top: -50px;
-    position: relative;
-    min-height: 395px;
-}
-
-.service-icon {
-    background-color: #fff;
-    text-align: center;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    -webkit-box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
-    box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
-}
-
-.service-content h3 a {
-    color: #13287c;
-}
-
-.service-content .read-more {
-    background-color: #247ffb;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    color: #fff;
-    border-radius: 50%;
-    display: inline-block;
-    font-size: 15px;
-    position: absolute;
-    left: 50%;
-    bottom: -25px;
-    transform: translateX(-50%);
-    visibility: hidden;
-    opacity: 0;
-    -webkit-transition: all .2s cubic-bezier(.37, .31, .2, .85);
-    transition: all .2s cubic-bezier(.37, .31, .2, .85);
-}
-
-.service-card:hover .read-more {
-    transform: translateX(-50%)scale(1.1);
-    visibility: visible;
-    opacity: 1;
-}
-
-.service-card:hover .service-thumb img {
-    transform: scale(1.05);
-}
-
-@media (max-width: 992px) {
-    .service-content .read-more {
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        bottom: -18px;
-    }
-}
 
 /*==============================================
     WORK PROCESS SECTION
@@ -2546,62 +2232,6 @@ button {
 /*==============================================
     TESTIMONIAL SECTION
 ==============================================*/
-.testimonials-section {
-    background-image: url(../img/map-pattern.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50%;
-    width: 100%;
-    height: 100%;
-}
-
-.testi-item {
-    padding: 40px;
-    background-color: #f9fafa;
-    margin: 0 10px;
-}
-
-.testi-inner {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    justify-content: space-between;
-}
-
-.testi-item h3 {
-    margin-left: -100px;
-}
-
-.testi-item h3 span {
-    font-size: 14px;
-    color: #247ffb;
-    font-weight: 600;
-    letter-spacing: 0;
-    font-family: "Heebo", sans-serif;
-    display: block;
-}
-
-.testi-item img {
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    border-radius: 50%;
-}
-
-.testi-item p {
-    font-size: 16px;
-    line-height: 28px;
-    font-style: italic;
-    margin-bottom: 0;
-}
-
-.ratings li {
-    display: inline-block;
-}
-
-.ratings li i {
-    color: #fba311;
-}
 
 /*==============================================
     TEAM SECTION
@@ -2774,10 +2404,6 @@ button {
     display: flex;
     align-items: center;
 }
-
-.faq-wrap .section-heading {}
-
-.faq-wrap .section-heading h2 {}
 
 .faq-wrap .section-heading p {
     margin: 15px 0;
@@ -3855,11 +3481,89 @@ blockquote span {
     }
 }
 
-h1 > a >span[aria-hidden="true"],
-h2 > a >span[aria-hidden="true"],
-h3 > a >span[aria-hidden="true"],
-h4 > a >span[aria-hidden="true"],
-h5 > a >span[aria-hidden="true"],
-h6 > a >span[aria-hidden="true"] {
-  display: none;
+h1>a>span[aria-hidden="true"],
+h2>a>span[aria-hidden="true"],
+h3>a>span[aria-hidden="true"],
+h4>a>span[aria-hidden="true"],
+h5>a>span[aria-hidden="true"],
+h6>a>span[aria-hidden="true"] {
+    display: none;
+}
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background-color: #ff9000;
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+}
+
+.custom-btn {
+    display: inline-block;
+    background: #FF9000;
+    color: #ffffff;
+    font-family: 'Heebo', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 35px;
+    letter-spacing: 0;
+    border-radius: 2rem;
+    overflow: hidden;
+    position: relative;
+    margin-left: 20px;
+    transition: all ease 700ms;
+    -moz-transition: all ease 700ms;
+    -webkit-transition: all ease 700ms;
+    -ms-transition: all ease 700ms;
+    -o-transition: all ease 700ms;
+    z-index: 1;
+}
+
+.custom-btn:hover {
+    color: #fff;
+}
+
+.custom-btn span {
+    background: #13287c none repeat scroll 0 0;
+    border-radius: 50%;
+    display: block;
+    height: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transition: width 0.6s ease 0s, height 0.6s ease 0s;
+    -moz-transition: width 0.6s ease 0s, height 0.6s ease 0s;
+    -webkit-transition: width 0.6s ease 0s, height 0.6s ease 0s;
+    -ms-transition: width 0.6s ease 0s, height 0.6s ease 0s;
+    -o-transition: width 0.6s ease 0s, height 0.6s ease 0s;
+    width: 0;
+    z-index: -1;
+}
+
+.custom-btn:hover span {
+    height: 562.5px;
+    width: 562.5px;
+}
+
+/* Reverse version of custom button */
+.custom-btn.reverse {
+    background: #13287c;
+    color: #fff;
+}
+
+.custom-btn.reverse:hover {
+    color: #FF9000;
+}
+
+.custom-btn.reverse span {
+    background: #FFF261;
+    /* or switch to lighter/darker for contrast */
 }
