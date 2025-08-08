@@ -6,15 +6,13 @@ import GallerySection from "../components/sections/GallerySection.astro";
 import ServiceSection from "@/components/sections/ServiceSection.astro";
 import MaterialSection from "@/components/sections/MaterialSection.astro";
 import WorkSection from "@/components/sections/WorkSection.astro";
-import FeaturesSection from "@/components/sections/FeaturesSection.astro";
-import BookSection from "@/components/sections/BookSection.astro";
 import TestimonialsSection from "@/components/sections/TestimonialsSection.astro";
 import CTASection from "@/components/sections/CTASection.astro";
-import ClientSection from "@/components/sections/ClientSection.astro";
 import SizeSection from "@/components/sections/SizeSection.astro";
 import FAQSection from "@/components/sections/FAQSection.astro";
 import HeroSection from "@/components/sections/HeroSection.astro";
-import IconBoxSection from "@/components/sections/IconBoxSection.astro";
+import MagicKeywordsSection from "@/components/sections/MagicKeywordsSection.astro";
+import NewClientSection from "@/components/sections/NewClientSection.astro";
 
 // Impor semua komponen bagian yang akan Anda gunakan di halaman ini
 //import HeroSlider from '../components/HeroSlider.astro';
@@ -31,20 +29,23 @@ import IconBoxSection from "@/components/sections/IconBoxSection.astro";
 
 	<HeroSection />
 
-	<IconBoxSection />
+	<MagicKeywordsSection />
 	<!-- why us -->
 	<AboutSection />
-	
 	<!-- Testimonials -->
 	<TestimonialsSection />
+
+	<div class="merged-section-1">
+		<NewClientSection />
+
+		<CTASection />
+	</div>
 
 	<!-- pelayanan -->
 	<ServiceSection />
 	<!-- Material -->
 	<MaterialSection />
 
-	<!-- Features -->
-	<FeaturesSection />
 
 	<!-- Gallery -->
 	<GallerySection />
@@ -52,17 +53,11 @@ import IconBoxSection from "@/components/sections/IconBoxSection.astro";
 	<!-- Process -->
 	<WorkSection />
 
-	<!-- client Section -->
-	<ClientSection />
-
 	<!-- Size Section -->
 	<SizeSection />
 
 	<!-- Size Section -->
 	<FAQSection />
-
-	<!-- Book Section -->
-	<BookSection />
 
 	<!-- Cta section -->
 	<CTASection />

@@ -1,3 +1,171 @@
-<section>
-    
+---
+const clients = [
+  {
+    img: "assets/img/client/client1.png",
+    title: "Seragam Kerja",
+    subtitle: "PT Bank Central Asia",
+  },
+  {
+    img: "assets/img/client/client2.png",
+    title: "Seragam Kerja",
+    subtitle: "Agung Sedayu Group",
+  },
+  {
+    img: "assets/img/client/client4.png",
+    title: "Seragam Costum",
+    subtitle: "PT Antam Tbk",
+  },
+  {
+    img: "assets/img/client/client5.png",
+    title: "Seragam Costum",
+    subtitle: "PAMJAKI",
+  },
+  {
+    img: "assets/img/client/client6.png",
+    title: "Seragam Kampus",
+    subtitle: "STIK Rustida",
+  },
+  {
+    img: "assets/img/client/client7.png",
+    title: "Seragam Sekolah",
+    subtitle: "YPI Baitut Taqwa",
+  },
+  {
+    img: "assets/img/client/client8.png",
+    title: "Seragam Kerja",
+    subtitle: "BirdNET",
+  },
+  {
+    img: "assets/img/client/client9.png",
+    title: "Seragam Costum",
+    subtitle: "HDS Foundation",
+  },
+];
+---
+
+<section class="client-section padding-20">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-md-4 col-sm-12 section-heading wow fadeInUp mb-10"
+        data-wow-delay="200ms"
+      >
+        <h2 class="text-center">Klien Kami</h2>
+      </div>
+      <div class="col-md-8 col-sm-12 wow fadeInUp" data-wow-delay="500ms">
+        <div class="row client-carousel">
+          {
+            clients.map(client => (
+              <div class="padding-15 text-center">
+                <div class="client-item">
+                  <div class="client-thumb">
+                    <img src={client.img} alt="img" />
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .section-heading h2 {
+    color: #229659 !important;
+    text-align: center !important;
+  }
+
+  .client-section .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-heading {
+    display: flex;
+    align-items: center;
+  }
+
+  .client-item {
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #fff; /* white frame */
+    background-color: #fff;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+      0px 30px 60px rgba(0, 0, 0, 0.1),
+      0px -4px 0px rgba(248, 99, 107, 0.02);
+  }
+
+  .client-thumb {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .client-thumb img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+  }
+
+  .client-thumb svg {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+  }
+
+  .client-item:hover .client-thumb:before {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .client-social {
+    position: absolute;
+    left: 50%;
+    bottom: -50%;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+  }
+
+  .client-item:hover .client-social {
+    bottom: 40px;
+    transition: all 0.3s ease;
+  }
+
+  .client-social li {
+    display: inline-block;
+  }
+
+  .client-social li a {
+    display: inline-block;
+    color: #fff261;
+    font-size: 15px;
+    margin: 0 5px;
+  }
+
+  .client-social li a:hover {
+    color: #13287c;
+  }
+
+  .client-content {
+    background-color: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .client-content h3 {
+    margin-bottom: 0;
+  }
+</style>

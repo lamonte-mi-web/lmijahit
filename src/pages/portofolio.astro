@@ -12,17 +12,20 @@ import GallerySection from "@/components/sections/GallerySection.astro";
 <!-- Gunakan Layout Anda -->
 <Layout title="Portofolio Produk | Lamonte Custom">
   <!-- Bagian Header Halaman Anda -->
-  <section class="page-header padding">
-    <div class="container">
-      <div class="page-content text-center">
-        <h2>Portofolio Seragam & Pakaian Kustom</h2>
-        <p>
-          Telusuri koleksi seragam dan pakaian kustom yang telah kami buat untuk
-          berbagai perusahaan, institusi, dan individu. Setiap potongan
-          dirancang dengan presisi dan disesuaikan dengan kebutuhan unik klien
-          kami.
-        </p>
-      </div>
+  <section class="page-header video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="/assets/video/HeroVideo.mp4" type="video/mp4" />
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="page-content container text-center">
+      <h2>Portofolio Seragam & Pakaian Kustom</h2>
+      <p>
+        Telusuri koleksi seragam dan pakaian kustom yang telah kami buat untuk
+        berbagai perusahaan, institusi, dan individu. Setiap potongan dirancang
+        dengan presisi dan disesuaikan dengan kebutuhan unik klien kami.
+      </p>
     </div>
   </section>
 

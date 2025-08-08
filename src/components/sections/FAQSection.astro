@@ -9,7 +9,7 @@
     </div>
     <div class="row">
       <div class="col-lg-6 padding-15">
-        <div id="accordion" role="tablist">
+        <div id="accordionLeft" role="tablist">
           <div class="acc-item active-acc">
             <h5 id="faq1">
               <a
@@ -26,7 +26,7 @@
               class="show collapse"
               role="tabpanel"
               aria-labelledby="faq1"
-              data-parent="#accordion"
+              data-parent="#accordionLeft"
             >
               <div class="card-body">
                 Ya! Anda bisa pesan secara online. Cukup kirim ukuran, referensi
@@ -51,7 +51,7 @@
               class="collapse"
               role="tabpanel"
               aria-labelledby="faq2"
-              data-parent="#accordion"
+              data-parent="#accordionLeft"
             >
               <div class="card-body">
                 Kami menyediakan panduan ukuran lengkap yang bisa Anda ikuti di
@@ -76,7 +76,7 @@
               class="collapse"
               role="tabpanel"
               aria-labelledby="faq3"
-              data-parent="#accordion"
+              data-parent="#accordionLeft"
             >
               <div class="card-body">
                 Waktu pengerjaan biasanya 5–14 hari kerja tergantung jenis baju
@@ -88,7 +88,7 @@
       </div>
       <!--/.col-->
       <div class="col-lg-6 padding-15">
-        <div id="accordion" role="tablist">
+        <div id="accordionRight" role="tablist">
           <div class="acc-item active-acc">
             <h5 id="faq4">
               <a
@@ -103,7 +103,7 @@
               class="show collapse"
               role="tabpanel"
               aria-labelledby="faq4"
-              data-parent="#accordion"
+              data-parent="#accordionRight"
             >
               <div class="card-body">
                 Tentu! Anda bisa kirim sketsa, foto referensi, atau hanya ide
@@ -128,7 +128,7 @@
               class="collapse"
               role="tabpanel"
               aria-labelledby="faq5"
-              data-parent="#accordion"
+              data-parent="#accordionRight"
             >
               <div class="card-body">
                 Bisa. Kami menerima revisi ukuran atau penyesuaian kecil dengan
@@ -152,7 +152,7 @@
               class="collapse"
               role="tabpanel"
               aria-labelledby="faq6"
-              data-parent="#accordion"
+              data-parent="#accordionRight"
             >
               <div class="card-body">
                 Kami melayani pengiriman ke seluruh Indonesia dan internasional
@@ -166,3 +166,125 @@
     </div>
   </div>
 </section><!-- /.faq-section -->
+
+<style>
+  .faq-section {
+  }
+
+  .faq-section .col-md-3,
+  .faq-section .col-md-6 {
+    padding: 0;
+  }
+
+  .faq-box {
+    padding: 80px 50px;
+  }
+
+  .faq-accordion {
+    border-radius: 2px;
+  }
+
+  .faq-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .faq-wrap .section-heading p {
+    margin: 15px 0;
+  }
+
+  .acc-item {
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+  }
+
+  #accordion .acc-item:not(:last-of-type) {
+  }
+
+  .acc-item.active-acc {
+  }
+
+  .acc-item h5 {
+    background-color: #fff;
+    font-weight: 600;
+    color: #162466;
+    margin: 0;
+    border-radius: 0;
+    transition: background-color 0.3s linear;
+  }
+
+  .acc-item.active-acc h5 {
+    background-color: transparent;
+    transition: background-color 0.3s linear;
+  }
+
+  .acc-item h5 a {
+    color: #13287c;
+    display: block;
+    padding: 20px 45px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    position: relative;
+    padding-left: 20px;
+    border: 1px solid #eee;
+  }
+
+  .acc-item h5 a:focus {
+    border: 1px solid #eee;
+  }
+
+  .acc-item h5 a:before {
+    content: "\f067";
+    font-family: "Font Awesome 5 Free";
+    font-size: 15px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #808291;
+    transition: all 0.3s linear;
+  }
+
+  .active-acc h5 a:before {
+    color: #13287c;
+    content: "\f068";
+    transition: all 0.3s linear;
+  }
+
+  .home-3-acc .active-acc h5 a:before {
+    background-color: #36bba0;
+  }
+
+  .card-body {
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
+
+  .collapse.show:focus,
+  .card-body:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .faq-bg {
+    background-image: url(../img/faq-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .acc-item h5 a {
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+  }
+
+  .acc-item h5 a:hover {
+    background-color: #f8f8f8;
+    color: #0c1d6c;
+  }
+</style>

@@ -131,7 +131,7 @@ const productTabs = [
         productTabs.map((tab, i) => (
           <li class="nav-item mx-1 mb-2" role="presentation">
             <button
-              class={`nav-link ${i === 0 ? "active" : ""}`}
+              class={`custom-btn ${i === 0 ? "active" : ""}`}
               id={`pills-${tab.id}-tab`}
               data-bs-toggle="pill"
               data-bs-target={`#pills-${tab.id}`}
@@ -140,6 +140,7 @@ const productTabs = [
               aria-controls={`pills-${tab.id}`}
               aria-selected={i === 0 ? "true" : "false"}
             >
+              <span></span>
               {tab.title}
             </button>
           </li>
@@ -161,7 +162,7 @@ const productTabs = [
             >
               <div class="row">
                 {displayedItems.map(item => (
-                  <div class="col-sm-4 col-md-3 col-lg-2 col-6 mb-4">
+                  <div class="col-sm-4 col-lg-2 col-6 mb-4">
                     <div class="portofolio-card h-100">
                       <img
                         src={item.img}
