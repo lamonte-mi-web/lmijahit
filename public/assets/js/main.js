@@ -129,6 +129,34 @@
         });
 
 
+        $(".hover-text").on("mousemove", function (e) {
+            var rect = this.getBoundingClientRect(),
+                x = ((e.clientX - rect.left) / rect.width) * 100,
+                y = ((e.clientY - rect.top) / rect.height) * 100;
+
+            $(this).css("--x", x + "%");
+            $(this).css("--y", y + "%");
+        });
+
+        // Optional: reset when mouse leaves
+        $(".hover-text").on("mouseleave", function () {
+            $(this).css("--x", "50%");
+            $(this).css("--y", "50%");
+        });
+
+        
+        $('.ripple-text').on('mousemove', function (e) {
+            var parentOffset = $(this).offset(),
+                relX = e.pageX - parentOffset.left,
+                relY = e.pageY - parentOffset.top,
+                width = $(this).width(),
+                height = $(this).height(),
+                xPercent = (relX / width) * 100,
+                yPercent = (relY / height) * 100;
+
+            $(this).css('background', `radial-gradient(circle at ${xPercent}% ${yPercent}%, #229659 0%, #FF9000 40%, transparent 80%)`);
+        });
+
         /* Smooth Scrolling */
         $('a[href*="#"]').smoothscroll({
             duration: 400
@@ -438,7 +466,7 @@
             maxTransition: 70
         });
 
-       /* ======= Faq Accordion ======= */
+        /* ======= Faq Accordion ======= */
         $('.collapse').on('shown.bs.collapse', function () {
             // Remove active from all
             $('.acc-item').removeClass('active-acc');

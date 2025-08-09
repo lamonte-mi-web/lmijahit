@@ -3408,3 +3408,32 @@ h6>a>span[aria-hidden="true"] {
     position: relative;
     overflow: hidden;
 }
+
+.ripple-text {
+    font-size: 52px;
+    font-weight: bold;
+    background: radial-gradient(circle at 50% 50%, #229659 0%, #FF9000 40%, transparent 80%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    transition: background-position 0.15s ease;
+}
+
+.hover-text {
+    position: relative;
+    display: inline-block;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), 
+        #229659 0%, 
+        #FF9000 50%, 
+        #000 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: background 0.1s;
+    cursor: pointer;
+
+    /* Default values for the variables */
+    --x: 50%;
+    --y: 50%;
+}
+
