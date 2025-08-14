@@ -8,6 +8,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import CTAButton from "@/components/CTAButton.astro";
 
+import "@/styles/main.css"
+
 interface Props {
   title: string;
   description?: string; // Tambahkan tanda tanya (?) untuk membuatnya opsional
@@ -51,7 +53,6 @@ console.log("URL lengkap:", currentURL);
     <link rel="stylesheet" href="/assets/css/magnific-popup.css" />
     <link rel="stylesheet" href="/assets/css/nice-select.css" />
     <link rel="stylesheet" href="/assets/css/odometer.min.css" />
-    <link rel="stylesheet" href="/assets/css/main.css" />
   </head>
   <body class="header-1">
     <div id="scroll-progress"></div>
