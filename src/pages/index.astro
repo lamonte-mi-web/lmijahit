@@ -11,6 +11,7 @@ import FAQSection from "@/components/sections/FAQSection.astro";
 import HeroSection from "@/components/sections/HeroSection.astro";
 import MagicKeywordsSection from "@/components/sections/MagicKeywordsSection.astro";
 import NewClientSection from "@/components/sections/NewClientSection.astro";
+import MapSection from "@/components/sections/MapSection.astro";
 
 // Impor semua komponen bagian yang akan Anda gunakan di halaman ini
 //import HeroSlider from '../components/HeroSlider.astro';
@@ -44,16 +45,17 @@ import NewClientSection from "@/components/sections/NewClientSection.astro";
 	<!-- Material -->
 	<MaterialSection />
 
-
 	<!-- Gallery -->
 	<GallerySection />
 
 	<!-- Size Section -->
 	<FAQSection />
+	<div class="merged-section-1">
+		<!-- Cta section -->
+		<CTASection />
+	</div>
 
-	<!-- Cta section -->
-	<CTASection />
-
+	<MapSection />
 	<script>
 		const form = document.getElementById(
 			"consultation-form"

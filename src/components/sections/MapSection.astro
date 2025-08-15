@@ -1,0 +1,43 @@
+---
+// Props (optional if you want to make it dynamic later)
+const {
+  width = "100%",
+  height = "350",
+  src = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.522262276505!2d106.8203648153442!3d-6.19456509551484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f421f5e3d78d%3A0x2855b33c20e5e010!2sJl.%20Hayam%20Wuruk%20No.111%2C%20RT.1%2FRW.6%2C%20Maphar%2C%20Kec.%20Taman%20Sari%2C%20Kota%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2011160!5e0!3m2!1sen!2sid!4v1678886543210!5m2!1sen!2sid",
+} = Astro.props;
+---
+
+<section class="padding">
+  <div class="mapouter" style={`height:${height}px`}>
+    <div class="gmap_canvas" style={`height:${height}px`}>
+      <iframe
+        width={width}
+        height={height}
+        id="gmap_canvas"
+        src={src}
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      >
+      </iframe>
+    </div>
+  </div>
+  <style>
+    .mapouter {
+      position: relative;
+      text-align: right;
+      width: 100%;
+    }
+
+    .gmap_canvas {
+      overflow: hidden;
+      background: none !important;
+      width: 100%;
+    }
+  </style>
+</section>
